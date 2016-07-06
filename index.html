@@ -1,5 +1,11 @@
-﻿---
-layout: default
-title: test title
 ---
-<p>Hello world!</p>
+layout: default
+---
+<h1>hello jekyll</h1>
+<p>This is the index page</p>
+<p>My post list:</p>
+<ul>
+	{% for post in site.post %}
+		<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+	{% endfor %}
+</ul>
