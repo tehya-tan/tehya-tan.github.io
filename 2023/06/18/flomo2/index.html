@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="电脑上做Flomo笔记的快捷方法和读书笔记的录入。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flomo：趁手的笔记本 (二)">
+<meta property="og:url" content="http://example.com/2023/06/18/flomo2/index.html">
+<meta property="og:site_name" content="Tehya&#39;s Blog">
+<meta property="og:description" content="电脑上做Flomo笔记的快捷方法和读书笔记的录入。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled.gif?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%201.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%202.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%203.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%201.gif?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%204.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%205.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%206.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%207.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%208.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%209.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2010.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2011.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2012.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2013.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2014.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2015.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2016.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2017.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2018.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2019.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2020.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%202.gif?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2021.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2022.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2023.png?raw=true">
+<meta property="article:published_time" content="2023-06-18T14:29:00.000Z">
+<meta property="article:modified_time" content="2023-06-27T23:57:11.629Z">
+<meta property="article:author" content="Tehya">
+<meta property="article:tag" content="App">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled.gif?raw=true">
+
+
+<link rel="canonical" href="http://example.com/2023/06/18/flomo2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/06/18/flomo2/","path":"2023/06/18/flomo2/","title":"Flomo：趁手的笔记本 (二)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Flomo：趁手的笔记本 (二) | Tehya's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-float {
+  bottom: 88px;
+  cursor: pointer;
+  left: -8px;
+  position: fixed;
+  z-index: 9999;
+}
+#needsharebutton-float .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 4px;
+  padding: 0 10px 0 14px;
+}
+</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Tehya's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%89%8D%E8%A8%80"><span class="nav-text">1 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%94%B5%E8%84%91%E7%AC%94%E8%AE%B0"><span class="nav-text">2 电脑笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Flomo-plus-chrome-%E6%B7%BB%E5%8A%A0%E9%A1%B9"><span class="nav-text">2.1 Flomo plus: chrome 添加项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%AF%BC%E5%85%A5"><span class="nav-text">3 读书笔记导入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Kindle"><span class="nav-text">3.1 Kindle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6"><span class="nav-text">3.2 微信读书</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Notion-%E5%90%8C%E6%AD%A5"><span class="nav-text">4 Notion 同步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%90%8E%E8%AE%B0"><span class="nav-text">5 后记</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Tehya</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:tehyatan23@gmail.com" title="E-Mail → mailto:tehyatan23@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://tehya.substack.com/" title="Newsletter → https:&#x2F;&#x2F;tehya.substack.com" rel="noopener me" target="_blank"><i class="fa fa-envelope-open-text fa-fw"></i>Newsletter</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/18/flomo2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Tehya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tehya's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Flomo：趁手的笔记本 (二) | Tehya's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Flomo：趁手的笔记本 (二)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-06-18 10:29:00" itemprop="dateCreated datePublished" datetime="2023-06-18T10:29:00-04:00">2023-06-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-06-27 19:57:11" itemprop="dateModified" datetime="2023-06-27T19:57:11-04:00">2023-06-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/06/18/flomo2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/06/18/flomo2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>电脑上做Flomo笔记的快捷方法和读书笔记的录入。</p>
+<span id="more"></span>
+
+<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h1><p>这个系列会总结一些我日常使用的flomo功能。</p>
+<p>上一篇讲了怎么用flomo做手机笔记，这篇会讲怎么在电脑做flomo笔记和笔记的导入导出（💰都是仅会员可用），包括:</p>
+<ol>
+<li>怎么快速选中网站上的文字发送到flomo笔记？</li>
+<li>怎么导入kindle和微信读书的笔记?</li>
+<li>怎么把flomo笔记同步到Notion？</li>
+</ol>
+<blockquote>
+<p>官网: <a target="_blank" rel="noopener" href="https://help.flomoapp.com/">https://help.flomoapp.com/</a></p>
+</blockquote>
+<blockquote>
+<p>下载链接: <a target="_blank" rel="noopener" href="https://help.flomoapp.com/basic/app.html">https://help.flomoapp.com/basic/app.html</a></p>
+</blockquote>
+<h1 id="2-电脑笔记"><a href="#2-电脑笔记" class="headerlink" title="2 电脑笔记"></a>2 电脑笔记</h1><h2 id="2-1-Flomo-plus-chrome-添加项"><a href="#2-1-Flomo-plus-chrome-添加项" class="headerlink" title="2.1 Flomo plus: chrome 添加项"></a>2.1 Flomo plus: chrome 添加项</h2><blockquote>
+<p>官网介绍：<a target="_blank" rel="noopener" href="https://help.flomoapp.com/advance/extension/chrome-extension.html">https://help.flomoapp.com/advance/extension/chrome-extension.html</a></p>
+</blockquote>
+<ul>
+<li><p>添加之后我们可以在chrome用右键快捷传送选中的文字到flomo</p>
+<p>  <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled.gif?raw=true" alt="Untitled"></p>
+</li>
+<li><p>笔记中会自动添加标签和网页链接<div style="display: flex; justify-content: center;"></p>
+  <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled.png?raw=true" style="width: 70%;">
+  </div></li>
+</ul>
+<p><strong>设置步骤</strong></p>
+<ol>
+<li><p>添加chrome添加项<br> <a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/flomoplus/kcijjmomofpdcpeiagibojhjifhegepj?hl=zh-CN">https://chrome.google.com/webstore/detail/flomoplus/kcijjmomofpdcpeiagibojhjifhegepj?hl=zh-CN</a></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p>设置添加项<br> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%201.png?raw=true" alt="Untitled"></p>
+</li>
+<li><p>输入flomo API  并选择默认的标签</p>
+ <div style="display: flex;"> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%202.png?raw=true" style="flex: 50%; padding: 5px;"> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%203.png?raw=true" style="flex: 50%; padding: 5px;"> </div>
+
+ <!--![Untitled](https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%202.png?raw=true)
+
+ ![Untitled](https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%203.png?raw=true)%%-->
+</li>
+<li><p>可以选中文本传送到flomo了🎉</p>
+</li>
+</ol>
+<h1 id="3-读书笔记导入"><a href="#3-读书笔记导入" class="headerlink" title="3 读书笔记导入"></a>3 读书笔记导入</h1><h2 id="3-1-Kindle"><a href="#3-1-Kindle" class="headerlink" title="3.1 Kindle"></a>3.1 Kindle</h2><blockquote>
+<p>官网介绍：<a target="_blank" rel="noopener" href="https://help.flomoapp.com/advance/extension/send2flomo.html#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D">https://help.flomoapp.com/advance/extension/send2flomo.html#功能介绍</a></p>
+</blockquote>
+<blockquote>
+<p>把kindle读书笔记传送flomo的在线网页: <a target="_blank" rel="noopener" href="https://tit1e.github.io/kindle2Flomo/old/">https://tit1e.github.io/kindle2Flomo/old/</a></p>
+</blockquote>
+<blockquote>
+<p>把kindle读书笔记传送flomo的App下载: <a target="_blank" rel="noopener" href="https://evolly.one/p/20f2e93b.html">https://evolly.one/p/20f2e93b.html</a></p>
+</blockquote>
+<ul>
+<li><p>导入kindle的批注之后可以在flomo上方便浏览</p>
+<p>  <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%201.gif?raw=true" alt="Untitled"></p>
+</li>
+<li><p>如果把设置的阅读标签绑定在每日回顾，flomo会在每日回顾中发送一些过去的阅读批注让你回顾</p>
+<p>  <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%204.png?raw=true" alt="Untitled"></p>
+</li>
+</ul>
+<p><strong>设置步骤 (在线网页对kindle的批注txt文件摘取传送，app还没用🧎‍♀️)</strong></p>
+<ol>
+<li><p>上传kindle里的 <code>My Clippings.txt</code> 文件</p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%205.png?raw=true" alt="Untitled"></p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%206.png?raw=true" alt="Untitled"></p>
+</li>
+<li><p>填入flomo api</p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%207.png?raw=true" alt="Untitled"></p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%208.png?raw=true" alt="Untitled"></p>
+</li>
+<li><p>设置tag，这个tag会被放在书籍名的前面</p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%209.png?raw=true" alt="Untitled"></p>
+</li>
+<li><p>选择书籍，可以编辑书名。</p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2010.png?raw=true" alt="Untitled"></p>
+</li>
+<li><p>全选或者点击自己想要导入</p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2011.png?raw=true" alt="Untitled"></p>
+</li>
+<li><p>设置每日回顾</p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2012.png?raw=true" alt="Untitled"></p>
+</li>
+</ol>
+<h2 id="3-2-微信读书"><a href="#3-2-微信读书" class="headerlink" title="3.2 微信读书"></a>3.2 微信读书</h2><p>还是可以借助flomo plus在电脑或者手机上对微信读书的批注进行传送，同样也可以编辑标签和阅读书籍的名字</p>
+<ul>
+<li><p>chrome添加项导入<br>  <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2013.png?raw=true" alt="Untitled"></p>
+<p>  <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2014.png?raw=true" alt="Untitled"></p>
+</li>
+<li><p><strong>微信小程序导入</strong></p>
+<ol>
+<li><p>在微信读书上复制所有读书笔记到粘贴板</p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2015.png?raw=true" alt="Untitled"></p>
+  <div style="display: flex;"> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2016.png?raw=true" style="width: 50%;"> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2017.png?raw=true" style="width: 50%; "> </div></li>
+</ol>
+</li>
+</ul>
+<ol start="2">
+<li><p>打开flomoplus微信小程序，设置api，点击粘贴</p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2018.png?raw=true" alt="Untitled"></p>
+ <div style="display: flex;"> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2019.png?raw=true" style="width: 50%;"> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2020.png?raw=true" style="width: 50%; "> </div></li>
+</ol>
+<h1 id="4-Notion-同步"><a href="#4-Notion-同步" class="headerlink" title="4 Notion 同步"></a>4 Notion 同步</h1><p>利用Notion的<code>connect</code> 功能</p>
+<blockquote>
+<p>官方介绍：<a target="_blank" rel="noopener" href="https://help.flomoapp.com/advance/extension/notion-sync.html#%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B">https://help.flomoapp.com/advance/extension/notion-sync.html#视频教程</a></p>
+</blockquote>
+<p>这个官方教程很完美了，发现还有bilibili的视频教程。</p>
+<p>由于整个数据库已经同步到Notion中，我们可以利用筛选功能创建符合自己需求的数据库视图。</p>
+<p>下面的例子是我把看理想的所有笔记都放在一个notion gallery里查看。</p>
+<p><img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%202.gif?raw=true" alt="Untitled"></p>
+<h1 id="5-后记"><a href="#5-后记" class="headerlink" title="5 后记"></a>5 后记</h1><ul>
+<li><p>拖了好久，flomo会员也有2年了。</p>
+</li>
+<li><p>在信息泛滥的时代，拥有一个趁手的电子笔记本非常重要，它可以帮助我们使用应用程序App来记录信息，而不是依靠人类有限的大脑资源去记忆。<img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2021.png?raw=true"  width="60%" ></p>
+  <div style="display: flex;"><img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2021.png?raw=true" style="width: 50%;">
+  <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2022.png?raw=true" style="width: 50%;"></div>
+</li>
+<li><p>flomo很好地满足了大部分人和我需要的：</p>
+<ol>
+<li>快速捕捉信息，即没有阻碍地快速地保留摘抄、记录想法 ✏️。</li>
+<li>方便整理信息，即能同步到用来写作的电子大脑🧠 💻。</li>
+<li>进行定时回顾，即相信你的笔记会定时浮现出来，帮助你重新消化信息并激发新的想法💡。<div style="display: flex; justify-content: center;">
+<img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20061823/Untitled%2023.png?raw=true" style="width: 70%;">
+</div></li>
+</ol>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://tehya.substack.com/embed">
+            <span class="icon">
+              <i class="fa fa-envelope-open-text"></i>
+            </span>
+
+            <span class="label">Newsletter</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/App/" rel="tag"># App</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/18/flomo1/" rel="prev" title="Flomo：趁手的笔记本 (一)">
+                  <i class="fa fa-chevron-left"></i> Flomo：趁手的笔记本 (一)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/25/Notion_clb/" rel="next" title="Leveraging Collaboration in Notion">
+                  Leveraging Collaboration in Notion <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Tehya</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-app-compat.js" integrity="sha256-FYa4Xn7MJlI18eIkwawbRKLz7bGeUODtNpSR+bsjlHg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-firestore-compat.js" integrity="sha256-sgbLcRGF3ph6N+ymg9zoy9kFQDWBvJlCd0GbGMKBH0c=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyC4aTYhB26fInluekTtovHm7rnx8sLxgTg","projectId":"blog-f0b28"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<div id="needsharebutton-float">
+      <span class="btn">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </span>
+    </div>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      flOptions = {};
+        flOptions.iconStyle = "default";
+        flOptions.boxForm = "vertical";
+        flOptions.position = "middleRight";
+        flOptions.networks = "Twitter,Mailto,Weibo,Wechat,Douban,Facebook,Linkedin,Reddit";
+      new needShareButton('#needsharebutton-float', flOptions);
+  </script><script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tyuanyao","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

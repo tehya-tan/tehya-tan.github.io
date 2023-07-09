@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="​">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Adding a Sign-Up Link to Your Hexo Blog with NexT Theme">
+<meta property="og:url" content="http://example.com/2023/07/02/hexo1/index.html">
+<meta property="og:site_name" content="Tehya&#39;s Blog">
+<meta property="og:description" content="​">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070223/Untitled.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070223/Untitled%201.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070223/Untitled%202.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070223/Untitled%203.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070223/Untitled%204.png?raw=true">
+<meta property="article:published_time" content="2023-07-02T19:23:00.000Z">
+<meta property="article:modified_time" content="2023-07-07T01:12:33.019Z">
+<meta property="article:author" content="Tehya">
+<meta property="article:tag" content="App">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070223/Untitled.png?raw=true">
+
+
+<link rel="canonical" href="http://example.com/2023/07/02/hexo1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/07/02/hexo1/","path":"2023/07/02/hexo1/","title":"Adding a Sign-Up Link to Your Hexo Blog with NexT Theme"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Adding a Sign-Up Link to Your Hexo Blog with NexT Theme | Tehya's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-float {
+  bottom: 88px;
+  cursor: pointer;
+  left: -8px;
+  position: fixed;
+  z-index: 9999;
+}
+#needsharebutton-float .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 4px;
+  padding: 0 10px 0 14px;
+}
+</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Tehya's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction"><span class="nav-text">1 Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Why-need-it"><span class="nav-text">1.1 Why need it?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-How-to-do-it"><span class="nav-text">1.2 How to do it?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Find-newsletter-signup-link-on-substack"><span class="nav-text">2 Find newsletter signup link on substack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Add-signup-link-to-your-post"><span class="nav-text">3 Add signup link to your post</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Icon-Options-for-Newsletter-Link"><span class="nav-text">3.1 Icon Options for Newsletter Link</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Reference"><span class="nav-text">4 Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Tehya</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:tehyatan23@gmail.com" title="E-Mail → mailto:tehyatan23@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://tehya.substack.com/" title="Newsletter → https:&#x2F;&#x2F;tehya.substack.com" rel="noopener me" target="_blank"><i class="fa fa-envelope-open-text fa-fw"></i>Newsletter</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/02/hexo1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Tehya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tehya's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Adding a Sign-Up Link to Your Hexo Blog with NexT Theme | Tehya's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Adding a Sign-Up Link to Your Hexo Blog with NexT Theme
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-07-02 15:23:00" itemprop="dateCreated datePublished" datetime="2023-07-02T15:23:00-04:00">2023-07-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-07-06 21:12:33" itemprop="dateModified" datetime="2023-07-06T21:12:33-04:00">2023-07-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/07/02/hexo1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/07/02/hexo1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>​         </p>
+<span id="more"></span>
+
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h1><h2 id="1-1-Why-need-it"><a href="#1-1-Why-need-it" class="headerlink" title="1.1 Why need it?"></a>1.1 Why need it?</h2><p>Recently I just started a <a target="_blank" rel="noopener" href="https://tehya.substack.com/">newsletter</a> on <a target="_blank" rel="noopener" href="https://substack.com/">Substack</a>. </p>
+<p>I intended to include a sign-up link at the bottom of my blog post to allow people to sign up.</p>
+<p>However, I couldn’t find a relevant resource for adding a sign-up link to a <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> blog using the <a target="_blank" rel="noopener" href="https://theme-next.js.org/">NexT</a> theme, so I’ll share my attempt.</p>
+<h2 id="1-2-How-to-do-it"><a href="#1-2-How-to-do-it" class="headerlink" title="1.2 How to do it?"></a>1.2 How to do it?</h2><p>This post will provide a two-step guide on:</p>
+<ol>
+<li>Finding your Substack newsletter signup link.</li>
+<li>Adding the sign-up link at the bottom of your blog post using <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a target="_blank" rel="noopener" href="https://theme-next.js.org/">NexT</a> theme.</li>
+</ol>
+<h1 id="2-Find-newsletter-signup-link-on-substack"><a href="#2-Find-newsletter-signup-link-on-substack" class="headerlink" title="2 Find newsletter signup link on substack"></a>2 Find newsletter signup link on substack</h1><blockquote>
+<p>There is an official support page about <a target="_blank" rel="noopener" href="https://support.substack.com/hc/en-us/articles/360041759232-Can-I-embed-a-signup-form-for-my-publication-">How to embed a signup form for my publication</a></p>
+</blockquote>
+<p>There are the steps of finding the codes to embed a signup form:</p>
+<ol>
+<li><p>Go to <code>Setting</code> and find your substack under the <code>Publication</code> section</p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070223/Untitled.png?raw=true" alt="Untitled"></p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070223/Untitled%201.png?raw=true" alt="Untitled"></p>
+</li>
+<li><p>Go to the <code>Setting</code> under your substack page</p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070223/Untitled%202.png?raw=true" alt="Untitled"></p>
+</li>
+<li><p>Go to the <code>Import</code> section, then you should get your signup link</p>
+<p> <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070223/Untitled%203.png?raw=true" alt="Untitled"></p>
+</li>
+</ol>
+<p>After coming this far, I realized that the link was actually quite easy to find, even without going to the settings page. However, it’s still a valuable learning experience to discover its location.</p>
+<h1 id="3-Add-signup-link-to-your-post"><a href="#3-Add-signup-link-to-your-post" class="headerlink" title="3 Add signup link to your post"></a>3 Add signup link to your post</h1><p>The follwoing steps are only applicable to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> blog with <a target="_blank" rel="noopener" href="https://theme-next.js.org/">NexT</a> theme.</p>
+<ol>
+<li><p>Open the <code>_config.yml</code> under the theme folder</p>
+<ul>
+<li>My path is <code>Hexo/themes/next-reloaded/_config.yml</code></li>
+</ul>
+</li>
+<li><p>Find the <code>Post Settings</code> header and <code>follow_me</code> part</p>
+ <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># ---------------------------------------------------------------</span><br><span class="line"># Post Settings</span><br><span class="line"># See: https://theme-next.org/docs/theme-settings/posts</span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"># Subscribe through Telegram Channel, Twitter, etc.</span><br><span class="line"># Usage: `Key: permalink || icon` (Font Awesome)</span><br><span class="line">follow_me:</span><br><span class="line">  #Twitter: https://twitter.com/username || fab fa-twitter</span><br><span class="line">  #Telegram: https://t.me/channel_name || fab fa-telegram</span><br><span class="line">  #WeChat: /images/wechat_channel.jpg || fab fa-weixin</span><br><span class="line">  #RSS: /atom.xml || fa fa-rss</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Add a line about newsletter</p>
+ <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Subscribe through Telegram Channel, Twitter, etc.</span><br><span class="line"># Usage: `Key: permalink || icon` (Font Awesome)</span><br><span class="line">follow_me:</span><br><span class="line">  #Twitter: https://twitter.com/username || fab fa-twitter</span><br><span class="line">  #Telegram: https://t.me/channel_name || fab fa-telegram</span><br><span class="line">  #WeChat: /images/wechat_channel.jpg || fab fa-weixin</span><br><span class="line">  #RSS: /atom.xml || fa fa-rss</span><br><span class="line">  Newsletter: https://tehya.substack.com || fa fa-envelope-open-text</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>You can see the result at the bottom of this post</p>
+</li>
+</ol>
+<h2 id="3-1-Icon-Options-for-Newsletter-Link"><a href="#3-1-Icon-Options-for-Newsletter-Link" class="headerlink" title="3.1 Icon Options for Newsletter Link"></a>3.1 Icon Options for Newsletter Link</h2><p>At first, I was unfamiliar with terms like <code>fa-rss</code>, <code>fa-twitter</code>, and so on. My assumption was that they represented icons, so I attempted to add <code>|| fa fa-rss</code> after my newsletter link, and it successfully appeared as an RSS icon.</p>
+<p>After asking ChatGPT, it answered me like</p>
+<blockquote>
+<p>The “fa fa-rss” part suggests that it might be related to Font Awesome, a popular icon font library.</p>
+<p>Font Awesome provides a wide range of icons that can be easily incorporated into websites or applications. The “fa fa-rss” specifically refers to an icon representing an RSS feed. The “fa” prefix is used to indicate the Font Awesome library, and “fa-rss” refers to the specific RSS icon.</p>
+</blockquote>
+<p>Sounds nice. Thank you, ChatGPT!</p>
+<p>Therefore, I visited <a target="_blank" rel="noopener" href="https://fontawesome.com/">Font Awesome</a> to find a more appealing icon for my newsletter. After selecting one, I copied its specific icon class name and pasted it after my newsletter link, following the steps outlined in step 3.</p>
+<p><img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070223/Untitled%204.png?raw=true" alt="Untitled"></p>
+<h1 id="4-Reference"><a href="#4-Reference" class="headerlink" title="4 Reference"></a>4 Reference</h1><p><a target="_blank" rel="noopener" href="http://whatbeg.com/2017/03/23/addemailsubscribe.html">http://whatbeg.com/2017/03/23/addemailsubscribe.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://support.substack.com/hc/en-us/articles/360041759232-Can-I-embed-a-signup-form-for-my-publication-">https://support.substack.com/hc/en-us/articles/360041759232-Can-I-embed-a-signup-form-for-my-publication-</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://tehya.substack.com/embed">
+            <span class="icon">
+              <i class="fa fa-envelope-open-text"></i>
+            </span>
+
+            <span class="label">Newsletter</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/App/" rel="tag"># App</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/06/25/Notion_clb/" rel="prev" title="Leveraging Collaboration in Notion">
+                  <i class="fa fa-chevron-left"></i> Leveraging Collaboration in Notion
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/07/09/login_anyconnect/" rel="next" title="Auto-login for Cisco Anyconnect on Mac">
+                  Auto-login for Cisco Anyconnect on Mac <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Tehya</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-app-compat.js" integrity="sha256-FYa4Xn7MJlI18eIkwawbRKLz7bGeUODtNpSR+bsjlHg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-firestore-compat.js" integrity="sha256-sgbLcRGF3ph6N+ymg9zoy9kFQDWBvJlCd0GbGMKBH0c=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyC4aTYhB26fInluekTtovHm7rnx8sLxgTg","projectId":"blog-f0b28"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<div id="needsharebutton-float">
+      <span class="btn">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </span>
+    </div>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      flOptions = {};
+        flOptions.iconStyle = "default";
+        flOptions.boxForm = "vertical";
+        flOptions.position = "middleRight";
+        flOptions.networks = "Twitter,Mailto,Weibo,Wechat,Douban,Facebook,Linkedin,Reddit";
+      new needShareButton('#needsharebutton-float', flOptions);
+  </script><script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tyuanyao","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

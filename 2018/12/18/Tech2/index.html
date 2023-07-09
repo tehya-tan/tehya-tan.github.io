@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="最近调的几个bug">
+<meta property="og:type" content="article">
+<meta property="og:title" content="调Bug(1)">
+<meta property="og:url" content="http://example.com/2018/12/18/Tech2/index.html">
+<meta property="og:site_name" content="Tehya&#39;s Blog">
+<meta property="og:description" content="最近调的几个bug">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-12-19T02:29:00.000Z">
+<meta property="article:modified_time" content="2023-06-25T18:39:38.790Z">
+<meta property="article:author" content="Tehya">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2018/12/18/Tech2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2018/12/18/Tech2/","path":"2018/12/18/Tech2/","title":"调Bug(1)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>调Bug(1) | Tehya's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-float {
+  bottom: 88px;
+  cursor: pointer;
+  left: -8px;
+  position: fixed;
+  z-index: 9999;
+}
+#needsharebutton-float .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 4px;
+  padding: 0 10px 0 14px;
+}
+</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Tehya's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%89%8D%E8%A8%80"><span class="nav-text">1 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%AD%A3%E6%96%87"><span class="nav-text">2 正文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-1-R-Rmarkdown%E5%86%99%E4%B8%AD%E6%96%87%E6%8A%A5warning"><span class="nav-text">2.1 1 R - Rmarkdown写中文报warning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-2-Sublime-Package-Codeontriol-%E6%97%A0%E6%B3%95%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6"><span class="nav-text">2.2 2 Sublime - Package Codeontriol 无法下载插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-3-Python-Cmd%E4%B8%AD%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80Spyder"><span class="nav-text">2.3 3 Python - Cmd中无法打开Spyder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-4-Python-LibSVM-%E4%BD%BF%E7%94%A8"><span class="nav-text">2.4 4 Python - LibSVM 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-5-Matlab2016-%E8%B0%83%E7%94%A8cpp%E6%96%87%E4%BB%B6"><span class="nav-text">2.5 5 Matlab2016 调用cpp文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%90%8E%E8%AE%B0"><span class="nav-text">3 后记</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Tehya</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:tehyatan23@gmail.com" title="E-Mail → mailto:tehyatan23@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://tehya.substack.com/" title="Newsletter → https:&#x2F;&#x2F;tehya.substack.com" rel="noopener me" target="_blank"><i class="fa fa-envelope-open-text fa-fw"></i>Newsletter</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/18/Tech2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Tehya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tehya's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="调Bug(1) | Tehya's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          调Bug(1)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-18 21:29:00" itemprop="dateCreated datePublished" datetime="2018-12-18T21:29:00-05:00">2018-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-06-25 14:39:38" itemprop="dateModified" datetime="2023-06-25T14:39:38-04:00">2023-06-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/12/18/Tech2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/18/Tech2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>最近调的几个bug</p>
+<span id="more"></span>
+<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h1><p>想写点东西，懒得写长，放一下最近调的几个Bug，水一水。</p>
+<h1 id="2-正文"><a href="#2-正文" class="headerlink" title="2 正文"></a>2 正文</h1><h2 id="2-1-1-R-Rmarkdown写中文报warning"><a href="#2-1-1-R-Rmarkdown写中文报warning" class="headerlink" title="2.1 1 R - Rmarkdown写中文报warning"></a>2.1 1 R - Rmarkdown写中文报warning</h2><ul>
+<li><p><strong>报错</strong>： How to fix Windows R warning message In strsplit input string 1 is invalid in this locale</p>
+</li>
+<li><p><strong>解决</strong>： 命令行输入</p>
+<blockquote>
+<p>Sys.setlocale(“LC_ALL”, “English”)</p>
+</blockquote>
+</li>
+<li><p><strong>参考</strong>：<a target="_blank" rel="noopener" href="https://xiangxing98.github.io/R_Learning/R_fix_windows_warning_message_In_strsplit_input_string_1_is_invalid_in_this_locale.nb.html">How to fix Windows R warning message In strsplit input string 1 is invalid in this locale</a></p>
+</li>
+</ul>
+<h2 id="2-2-2-Sublime-Package-Codeontriol-无法下载插件"><a href="#2-2-2-Sublime-Package-Codeontriol-无法下载插件" class="headerlink" title="2.2 2 Sublime - Package Codeontriol 无法下载插件"></a>2.2 2 Sublime - Package Codeontriol 无法下载插件</h2><ul>
+<li><p><strong>报错</strong>:There are no packages available for installation</p>
+</li>
+<li><p><strong>解决</strong>：</p>
+<ol>
+<li>把[path]\Sublime Text3\Data\Packages里package control文件夹删掉；</li>
+<li>按官网提示，人工下载Package Control.sublime-package文件，复制到[path]\Sublime Text3\Data\Installed Packages里，重启sublime</li>
+</ol>
+</li>
+<li><p><strong>参考</strong>: <a target="_blank" rel="noopener" href="https://packagecontrol.io/installation">Package Control官网</a></p>
+</li>
+</ul>
+<h2 id="2-3-3-Python-Cmd中无法打开Spyder"><a href="#2-3-3-Python-Cmd中无法打开Spyder" class="headerlink" title="2.3 3 Python - Cmd中无法打开Spyder"></a>2.3 3 Python - Cmd中无法打开Spyder</h2><ul>
+<li><strong>报错</strong>: This application failed to start because it could not find or load the Qt platform plugin “windows” in “”.</li>
+<li><strong>解决</strong>：更新qt<blockquote>
+<p>conda install qt</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2-4-4-Python-LibSVM-使用"><a href="#2-4-4-Python-LibSVM-使用" class="headerlink" title="2.4 4 Python - LibSVM 使用"></a>2.4 4 Python - LibSVM 使用</h2><ul>
+<li><p><strong>说明</strong>： 并非下了包放在sitepackage文件夹里面就可以直接用，还需要建立两个空的py文件</p>
+</li>
+<li><p><strong>参考</strong>:  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Finley/p/5329417.html">LibSVM for Python 使用</a></p>
+</li>
+</ul>
+<h2 id="2-5-5-Matlab2016-调用cpp文件"><a href="#2-5-5-Matlab2016-调用cpp文件" class="headerlink" title="2.5 5 Matlab2016 调用cpp文件"></a>2.5 5 Matlab2016 调用cpp文件</h2><ul>
+<li><strong>报错</strong>：Received fatal alert:protocol_version</li>
+<li><strong>解决</strong>：</li>
+</ul>
+<ol>
+<li>在matlab安装mingw(c++编译器)</li>
+</ol>
+<ul>
+<li><strong>参考</strong>: <a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/support/bugreports/1741173">https://ww2.mathworks.cn/support/bugreports/1741173</a>;<br><a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/matlabcentral/answers/385789-why-do-i-encounter-a-received-fatal-alert-protocol_version-when-installing-a-support-package-in-ma">https://ww2.mathworks.cn/matlabcentral/answers/385789-why-do-i-encounter-a-received-fatal-alert-protocol_version-when-installing-a-support-package-in-ma</a></li>
+</ul>
+<ol start="2">
+<li>编译这个文件<blockquote>
+<p>mex -g xx.cpp</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>说明</strong>：2017版的matlab已经解决了这个bug。</p>
+<h1 id="3-后记"><a href="#3-后记" class="headerlink" title="3 后记"></a>3 后记</h1><p>没有</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://tehya.substack.com/embed">
+            <span class="icon">
+              <i class="fa fa-envelope-open-text"></i>
+            </span>
+
+            <span class="label">Newsletter</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/12/19/lookinUSA/" rel="prev" title="自由与代价">
+                  <i class="fa fa-chevron-left"></i> 自由与代价
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/04/10/Tech1/" rel="next" title="重装win10">
+                  重装win10 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Tehya</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-app-compat.js" integrity="sha256-FYa4Xn7MJlI18eIkwawbRKLz7bGeUODtNpSR+bsjlHg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-firestore-compat.js" integrity="sha256-sgbLcRGF3ph6N+ymg9zoy9kFQDWBvJlCd0GbGMKBH0c=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyC4aTYhB26fInluekTtovHm7rnx8sLxgTg","projectId":"blog-f0b28"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<div id="needsharebutton-float">
+      <span class="btn">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </span>
+    </div>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      flOptions = {};
+        flOptions.iconStyle = "default";
+        flOptions.boxForm = "vertical";
+        flOptions.position = "middleRight";
+        flOptions.networks = "Twitter,Mailto,Weibo,Wechat,Douban,Facebook,Linkedin,Reddit";
+      new needShareButton('#needsharebutton-float', flOptions);
+  </script><script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tyuanyao","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

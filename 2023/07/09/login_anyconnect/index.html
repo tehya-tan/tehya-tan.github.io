@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="​">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Auto-login for Cisco Anyconnect on Mac">
+<meta property="og:url" content="http://example.com/2023/07/09/login_anyconnect/index.html">
+<meta property="og:site_name" content="Tehya&#39;s Blog">
+<meta property="og:description" content="​">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/anyconnect1.gif?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/Untitled.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/Untitled%201.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/Untitled%202.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/Untitled%203.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/Untitled%204.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/anyconnect2.gif?raw=true">
+<meta property="article:published_time" content="2023-07-09T21:46:00.000Z">
+<meta property="article:modified_time" content="2023-07-09T21:59:37.703Z">
+<meta property="article:author" content="Tehya">
+<meta property="article:tag" content="Mac">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/anyconnect1.gif?raw=true">
+
+
+<link rel="canonical" href="http://example.com/2023/07/09/login_anyconnect/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/07/09/login_anyconnect/","path":"2023/07/09/login_anyconnect/","title":"Auto-login for Cisco Anyconnect on Mac"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Auto-login for Cisco Anyconnect on Mac | Tehya's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-float {
+  bottom: 88px;
+  cursor: pointer;
+  left: -8px;
+  position: fixed;
+  z-index: 9999;
+}
+#needsharebutton-float .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 4px;
+  padding: 0 10px 0 14px;
+}
+</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Tehya's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction"><span class="nav-text">1 Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Why-is-it-needed"><span class="nav-text">1.1 Why is it needed?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Apple-Script-for-Automation"><span class="nav-text">2 Apple Script for Automation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Apple-Script-Codes"><span class="nav-text">2.1 Apple Script Codes</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Turn-this-script-to-an-application"><span class="nav-text">3 Turn this script to an application</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Reference"><span class="nav-text">4 Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Tehya</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:tehyatan23@gmail.com" title="E-Mail → mailto:tehyatan23@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://tehya.substack.com/" title="Newsletter → https:&#x2F;&#x2F;tehya.substack.com" rel="noopener me" target="_blank"><i class="fa fa-envelope-open-text fa-fw"></i>Newsletter</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/09/login_anyconnect/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Tehya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tehya's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Auto-login for Cisco Anyconnect on Mac | Tehya's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Auto-login for Cisco Anyconnect on Mac
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-07-09 17:46:00 / Modified: 17:59:37" itemprop="dateCreated datePublished" datetime="2023-07-09T17:46:00-04:00">2023-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/07/09/login_anyconnect/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/07/09/login_anyconnect/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>​         </p>
+<span id="more"></span>
+
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h1><p>This blog post explains how to write an AppleScript to automate the log-in procedure for Cisco Anyconnect on a Mac. The post provides a two-step guide on:</p>
+<ol>
+<li>How to write the AppleScript to automate the procedure?</li>
+<li>How to make the script an actionable program and access it easily like an app?</li>
+</ol>
+<h2 id="1-1-Why-is-it-needed"><a href="#1-1-Why-is-it-needed" class="headerlink" title="1.1 Why is it needed?"></a>1.1 Why is it needed?</h2><p>Here is an example of why this is useful:</p>
+<p>If you want to submit jobs from home to the high-performance computer at school, you need to log in to the school VPN through Cisco Anyconnect every time. Sometimes, you need to log in every day.</p>
+<p>Usually, connecting to the school VPN address requires a few steps:</p>
+<ol>
+<li>Open Anyconnect.</li>
+<li>Press <code>Connect</code> to your VPN address.</li>
+<li>In the pop-up window, type your <code>Username</code> and <code>Password</code>.</li>
+<li>Press <code>Log in</code>.</li>
+<li>Wait a while, a push will appear on your phone, confirm it. Then connection completed.</li>
+</ol>
+<p>Since Cisco Anyconnect doesn’t remember your ID, password, or your computer every time, you need to repeat steps 1-5 every time. To save time (as an extreme lazy person), steps 2-4 can be completely automated, although step 5 is still necessary.</p>
+<p><img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/anyconnect1.gif?raw=true" alt="anyconnect1.gif"></p>
+<h1 id="2-Apple-Script-for-Automation"><a href="#2-Apple-Script-for-Automation" class="headerlink" title="2 Apple Script for Automation"></a>2 Apple Script for Automation</h1><ol>
+<li><p>Open Script Editor</p>
+<ul>
+<li>path: &#x2F;System&#x2F;Applications&#x2F;Utilities&#x2F;Script Editor.app</li>
+</ul>
+<p><img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/Untitled.png?raw=true" alt="Untitled"></p>
+</li>
+<li><p>Click <code>New Document</code> to create a new script</p>
+<p><img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/Untitled%201.png?raw=true" alt="Untitled"></p>
+</li>
+<li><p>Add the script code (or download the script file <a target="_blank" rel="noopener" href="https://github.com/tehya-tan/cisco-vpn-auto-login">here</a>)</p>
+<ul>
+<li>Find the following part and change to your <code>Username</code> and <code>Password</code>   <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tell application <span class="string">&quot;System Events&quot;</span> to keystroke <span class="string">&quot;Username&quot;</span>			</span><br><span class="line">tell application <span class="string">&quot;System Events&quot;</span> to keystroke tab			</span><br><span class="line">tell application <span class="string">&quot;System Events&quot;</span> to keystroke <span class="string">&quot;Password&quot;</span>	</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Run it by clicking ▶️ to test if it works in your computer</p>
+</li>
+</ol>
+<h2 id="2-1-Apple-Script-Codes"><a href="#2-1-Apple-Script-Codes" class="headerlink" title="2.1 Apple Script Codes"></a>2.1 Apple Script Codes</h2><p>This code has been modified using the scripts from <a target="_blank" rel="noopener" href="https://github.com/sgsvnk">sgsvnk</a>&#x2F;<a target="_blank" rel="noopener" href="https://github.com/sgsvnk/cisco-vpn-auto-login">cisco-vpn-auto-login</a>.</p>
+<p>The initial <code>if</code> loop is designed to launch Cisco AnyConnect on your Mac.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> application <span class="string">&quot;Cisco AnyConnect Secure Mobility Client&quot;</span> is running then	</span><br><span class="line">	tell application <span class="string">&quot;Cisco AnyConnect Secure Mobility Client&quot;</span> to activate	</span><br><span class="line">	tell application <span class="string">&quot;System Events&quot;</span> to keystroke <span class="keyword">return</span>	</span><br><span class="line"><span class="keyword">else</span>	</span><br><span class="line">	<span class="keyword">do</span> shell script <span class="string">&quot;open -a /Applications/Cisco/Cisco\\ AnyConnect\\ Secure\\ Mobility\\ Client.app&quot;</span>	</span><br><span class="line">end <span class="keyword">if</span></span><br><span class="line"></span><br><span class="line">set isConnectionEstablished to <span class="literal">false</span></span><br><span class="line">repeat <span class="keyword">while</span> isConnectionEstablished = <span class="literal">false</span>	</span><br><span class="line">	tell application <span class="string">&quot;System Events&quot;</span>		</span><br><span class="line">		<span class="keyword">if</span> exists (<span class="variable language_">window</span> <span class="number">3</span> <span class="keyword">of</span> process <span class="string">&quot;Cisco AnyConnect Secure Mobility Client&quot;</span>) then			</span><br><span class="line">			set isConnectionEstablished to <span class="literal">true</span>			</span><br><span class="line">			delay <span class="number">2</span>			</span><br><span class="line">			</span><br><span class="line">			tell application <span class="string">&quot;System Events&quot;</span> to keystroke <span class="string">&quot;Username&quot;</span>			</span><br><span class="line">			tell application <span class="string">&quot;System Events&quot;</span> to keystroke tab			</span><br><span class="line">			tell application <span class="string">&quot;System Events&quot;</span> to keystroke <span class="string">&quot;Password&quot;</span>			</span><br><span class="line">			tell application <span class="string">&quot;System Events&quot;</span> to key code <span class="number">76</span></span><br><span class="line">			</span><br><span class="line">			set isAuthenticated to <span class="literal">false</span>			</span><br><span class="line">			repeat <span class="keyword">while</span> isAuthenticated = <span class="literal">false</span>				</span><br><span class="line">				delay <span class="number">0.2</span>								</span><br><span class="line">			</span><br><span class="line">				tell application <span class="string">&quot;System Events&quot;</span>					</span><br><span class="line">					<span class="keyword">if</span> not (exists (<span class="variable language_">window</span> <span class="number">3</span> <span class="keyword">of</span> process <span class="string">&quot;Cisco AnyConnect Secure Mobility Client&quot;</span>)) then						</span><br><span class="line">						delay <span class="number">5</span>						</span><br><span class="line">						set isAuthenticated to <span class="literal">true</span>						</span><br><span class="line">						tell application <span class="string">&quot;System Events&quot;</span> to keystroke <span class="keyword">return</span>					</span><br><span class="line">					end <span class="keyword">if</span>				</span><br><span class="line">				end tell							</span><br><span class="line">			end repeat		</span><br><span class="line">		end <span class="keyword">if</span>	</span><br><span class="line">	end tell</span><br><span class="line">end repeat</span><br></pre></td></tr></table></figure>
+
+<p>Here are the modifications I made:</p>
+<ol>
+<li>Added a time delay after connecting to the VPN address because I noticed that it takes a while for the login window to appear.</li>
+<li>Added steps to automatically type in your username and password and then press enter.</li>
+</ol>
+<h1 id="3-Turn-this-script-to-an-application"><a href="#3-Turn-this-script-to-an-application" class="headerlink" title="3 Turn this script to an application"></a>3 Turn this script to an application</h1><blockquote>
+<p>Here is a apple support page about <a target="_blank" rel="noopener" href="https://support.apple.com/guide/script-editor/save-a-script-as-an-app-scpedt1072/mac">Save a script as an app in Script Editor on Mac</a></p>
+</blockquote>
+<ol>
+<li><p>Export this script   <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/Untitled%202.png?raw=true" alt="Untitled"></p>
+</li>
+<li><p>Choose File Format as <code>Application</code> and give a name to this application    <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/Untitled%203.png?raw=true" alt="Untitled"></p>
+</li>
+<li><p>Now you can find it in your application and call it out easily    <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/Untitled%204.png?raw=true" alt="Untitled">   <img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20070923/anyconnect2.gif?raw=true" alt="anyconnect2.gif"></p>
+</li>
+</ol>
+<h1 id="4-Reference"><a href="#4-Reference" class="headerlink" title="4 Reference"></a>4 Reference</h1><p><a target="_blank" rel="noopener" href="https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/CreateaScript.html">https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/CreateaScript.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/guide/script-editor/save-a-script-as-an-app-scpedt1072/mac">https://support.apple.com/guide/script-editor/save-a-script-as-an-app-scpedt1072/mac</a></p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/andrewh/7135352">https://gist.github.com/andrewh/7135352</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sgsvnk/cisco-vpn-auto-login">https://github.com/sgsvnk/cisco-vpn-auto-login</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://tehya.substack.com/embed">
+            <span class="icon">
+              <i class="fa fa-envelope-open-text"></i>
+            </span>
+
+            <span class="label">Newsletter</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Mac/" rel="tag"># Mac</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/07/02/hexo1/" rel="prev" title="Adding a Sign-Up Link to Your Hexo Blog with NexT Theme">
+                  <i class="fa fa-chevron-left"></i> Adding a Sign-Up Link to Your Hexo Blog with NexT Theme
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Tehya</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-app-compat.js" integrity="sha256-FYa4Xn7MJlI18eIkwawbRKLz7bGeUODtNpSR+bsjlHg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-firestore-compat.js" integrity="sha256-sgbLcRGF3ph6N+ymg9zoy9kFQDWBvJlCd0GbGMKBH0c=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyC4aTYhB26fInluekTtovHm7rnx8sLxgTg","projectId":"blog-f0b28"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<div id="needsharebutton-float">
+      <span class="btn">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </span>
+    </div>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      flOptions = {};
+        flOptions.iconStyle = "default";
+        flOptions.boxForm = "vertical";
+        flOptions.position = "middleRight";
+        flOptions.networks = "Twitter,Mailto,Weibo,Wechat,Douban,Facebook,Linkedin,Reddit";
+      new needShareButton('#needsharebutton-float', flOptions);
+  </script><script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tyuanyao","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
