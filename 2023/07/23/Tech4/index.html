@@ -27,7 +27,7 @@
 <meta property="og:description" content="​">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-23T21:07:00.000Z">
-<meta property="article:modified_time" content="2023-07-23T22:43:21.713Z">
+<meta property="article:modified_time" content="2023-07-23T22:51:47.045Z">
 <meta property="article:author" content="Tehya">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -212,7 +212,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-07-23 17:07:00 / Modified: 18:43:21" itemprop="dateCreated datePublished" datetime="2023-07-23T17:07:00-04:00">2023-07-23</time>
+      <time title="Created: 2023-07-23 17:07:00 / Modified: 18:51:47" itemprop="dateCreated datePublished" datetime="2023-07-23T17:07:00-04:00">2023-07-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -267,7 +267,7 @@
 <p>However, if you are working on another list <code>A2</code>, <code>list.copy()</code> works.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">B2 = A2.copy()</span><br><span class="line">B2[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line"><span class="built_in">print</span>(B2)</span><br><span class="line"><span class="comment">#[3, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(A2)</span><br><span class="line"><span class="comment">#[1, 2, 3]</span></span><br></pre></td></tr></table></figure>
 
-<p>Why? The answer is that <code>list.copy()</code> or <code>newlist = oldlist[:]</code> fail to produce independent copies of <strong>nested</strong> lists because they create shallow copies, preserving references to the original inner lists.</p>
+<p>Why? The answer is that <code>list.copy()</code> and <code>newlist = oldlist[:]</code> fail to produce independent copies of <strong>nested</strong> lists because they create shallow copies, preserving references to the original inner lists.</p>
 <p>Then how can we copy it?</p>
 <h1 id="3-The-Solution-Using-deepcopy-for-Nested-Lists"><a href="#3-The-Solution-Using-deepcopy-for-Nested-Lists" class="headerlink" title="3 The Solution: Using deepcopy for Nested Lists"></a>3 The Solution: Using <code>deepcopy</code> for Nested Lists</h1><p>Python provides a useful function called <code>deepcopy</code> within the <strong><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/copy.html">copy</a></strong> module.</p>
 <p>The <strong><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/copy.html">copy</a></strong> module’s documentation distinguishes between two copy techniques: the <em>deep copy</em> and the <em>shallow copy</em>.</p>
