@@ -27,7 +27,7 @@
 <meta property="og:description" content="​">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-23T21:07:00.000Z">
-<meta property="article:modified_time" content="2023-07-24T00:35:28.937Z">
+<meta property="article:modified_time" content="2023-07-24T12:51:28.340Z">
 <meta property="article:author" content="Tehya">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -210,9 +210,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-07-23 17:07:00 / Modified: 20:35:28" itemprop="dateCreated datePublished" datetime="2023-07-23T17:07:00-04:00">2023-07-23</time>
+      <time title="Created: 2023-07-23 17:07:00" itemprop="dateCreated datePublished" datetime="2023-07-23T17:07:00-04:00">2023-07-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-07-24 08:51:28" itemprop="dateModified" datetime="2023-07-24T08:51:28-04:00">2023-07-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -263,7 +269,7 @@
 <p>Let’s examine an example using <code>list.copy()</code> and see its limitations:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">A1 = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="built_in">print</span>(A1)</span><br><span class="line"><span class="comment">#[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br><span class="line"></span><br><span class="line">B1 = A1.copy()</span><br><span class="line"><span class="comment"># same as B1 = A1[:]</span></span><br><span class="line">B[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(B1)</span><br><span class="line"><span class="comment"># [[3, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(A1)</span><br><span class="line"><span class="comment"># [[3, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br></pre></td></tr></table></figure>
 
-<p>As you can see, <code>A1</code> changes as <code>B1</code> changes. The same issue arises when using slice assignment <strong><code>[:]</code>.</strong></p>
+<p>As you can see, <code>A1</code> changes as <code>B1</code> changes. The same issue arises when using slice assignment <code>[:]</code>.</p>
 <p>However, if you are working on another list <code>A2</code>, <code>list.copy()</code> works.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">B2 = A2.copy()</span><br><span class="line">B2[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line"><span class="built_in">print</span>(B2)</span><br><span class="line"><span class="comment">#[3, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(A2)</span><br><span class="line"><span class="comment">#[1, 2, 3]</span></span><br></pre></td></tr></table></figure>
 
@@ -279,7 +285,7 @@
 </ul>
 </blockquote>
 <p>Back to the examples, the <code>A1</code> list is a compound object, whereas the <code>A2</code> list is not. </p>
-<p>For an independent copy of the <code>A1</code> list, a deep copy is required, whereas for the <strong><code>A2</code></strong> list, a shallow copy suffices. </p>
+<p>For an independent copy of the <code>A1</code> list, a deep copy is required, whereas for the <code>A2</code> list, a shallow copy suffices. </p>
 <p>The commands <code>list.copy()</code> or <code>newlist = oldlist[:]</code> can be used to perform a shallow copy.</p>
 <p>So the solution of the example is </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">A1 = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="built_in">print</span>(A1)</span><br><span class="line"><span class="comment"># [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br><span class="line"></span><br><span class="line">B1 = copy.deepcopy(A1)</span><br><span class="line">B1[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line"><span class="built_in">print</span>(B1)</span><br><span class="line"><span class="comment"># [[3, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br><span class="line"><span class="built_in">print</span>(A1)</span><br><span class="line"><span class="comment"># [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br></pre></td></tr></table></figure>
