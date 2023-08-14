@@ -19,28 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="hexo-blog-encrypt的简单使用">
+    <meta name="description" content="​">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何加密Hexo博客文章">
-<meta property="og:url" content="http://example.com/2020/12/13/encrypt/index.html">
+<meta property="og:title" content="Exploring the Cauchy-Schwarz Inequality and Its Applications">
+<meta property="og:url" content="http://example.com/2023/08/13/CSI/index.html">
 <meta property="og:site_name" content="Tehya&#39;s Blog">
-<meta property="og:description" content="hexo-blog-encrypt的简单使用">
+<meta property="og:description" content="​">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-14T00:00:00.000Z">
-<meta property="article:modified_time" content="2023-01-10T03:55:28.000Z">
+<meta property="article:published_time" content="2023-08-14T01:05:00.000Z">
+<meta property="article:modified_time" content="2023-08-14T01:16:49.757Z">
 <meta property="article:author" content="Tehya">
-<meta property="article:tag" content="技术">
+<meta property="article:tag" content="理论">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2020/12/13/encrypt/">
+<link rel="canonical" href="http://example.com/2023/08/13/CSI/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2020/12/13/encrypt/","path":"2020/12/13/encrypt/","title":"如何加密Hexo博客文章"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/08/13/CSI/","path":"2023/08/13/CSI/","title":"Exploring the Cauchy-Schwarz Inequality and Its Applications"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>如何加密Hexo博客文章 | Tehya's Blog</title>
+<title>Exploring the Cauchy-Schwarz Inequality and Its Applications | Tehya's Blog</title>
   
 
 
@@ -126,7 +126,10 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">1 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-text">2 下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">3 配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%83%E8%AF%95"><span class="nav-text">4 调试</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-text">1 Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cauchy-schwarz-inequality"><span class="nav-text">2 Cauchy-Schwarz inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#definition-in-inner-product-space"><span class="nav-text">2.1 Definition in
+inner product space</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#special-case-in-mathbbrn"><span class="nav-text">2.2 Special Case in \(\mathbb{R}^{n}\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#special-case-in-mathbbl2"><span class="nav-text">2.3 Special Case in \(\mathbb{L}^2\)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#application-on-analysis-triangle-inequality"><span class="nav-text">3 Application on
+Analysis: Triangle inequality</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#application-in-probability-theory-covariance-inequality"><span class="nav-text">4
+Application in Probability theory: Covariance inequality</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">5 Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -183,7 +186,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/13/encrypt/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/13/CSI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -196,12 +199,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="如何加密Hexo博客文章 | Tehya's Blog">
+      <meta itemprop="name" content="Exploring the Cauchy-Schwarz Inequality and Its Applications | Tehya's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          如何加密Hexo博客文章
+          Exploring the Cauchy-Schwarz Inequality and Its Applications
         </h1>
 
         <div class="post-meta-container">
@@ -211,15 +214,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2020-12-13 19:00:00" itemprop="dateCreated datePublished" datetime="2020-12-13T19:00:00-05:00">2020-12-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-09 22:55:28" itemprop="dateModified" datetime="2023-01-09T22:55:28-05:00">2023-01-09</time>
+      <time title="Created: 2023-08-13 21:05:00 / Modified: 21:16:49" itemprop="dateCreated datePublished" datetime="2023-08-13T21:05:00-04:00">2023-08-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -227,7 +224,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+          <a href="/categories/Theory/" itemprop="url" rel="index"><span itemprop="name">Theory</span></a>
         </span>
     </span>
 
@@ -247,8 +244,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2020/12/13/encrypt/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/13/encrypt/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2023/08/13/CSI/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/08/13/CSI/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -261,36 +258,163 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>hexo-blog-encrypt的简单使用 <span id="more"></span></p>
-<h1 id="前言">1 前言</h1>
-<p>加密Hexo博客的文章只需要安装一个插件 <a
-target="_blank" rel="noopener" href="https://github.com/D0n9X1n/hexo-blog-encrypt">hexo-blog-encrypt</a>,
-再通过修改每个Markdown文件的头部设置就能对部分文章进行加密。</p>
-<h1 id="下载">2 下载</h1>
-<p>首先确保已经安装了Node,可以使用npm命令行.</p>
-<p>MAC打开终端(Windows打开CMD)输入</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-blog-encrypt</span><br></pre></td></tr></table></figure>
-<p>或者 (如果安装了Yarn)</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add hexo-blog-encrypt </span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>已下载Node并使用npm下载的朋友如果报错
-<code>zsh: command not found: npm</code>请移步调试部分</p>
-</blockquote>
-<h1 id="配置">3 配置</h1>
-<ol type="1">
-<li><p>下面修改Hexo根目录的配置文件<code>_config.yml</code>，增加
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">encrypt:</span> </span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span>  </span><br><span class="line">  <span class="attr">abstract:</span> <span class="string">这是一篇加密文章。</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">您好,</span> <span class="string">这里需要密码.</span></span><br></pre></td></tr></table></figure> &gt;
-更多的设置可以查看github上面的ReadMe(https://github.com/D0n9X1n/hexo-blog-encrypt)</p></li>
-<li><p>接着找到你想要加密的文章，在头部的设置里面添加一行<code>password:yourpassword</code>,
-比如这样 <figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 如何加密Hexo博客文章</span><br><span class="line">toc: true</span><br><span class="line">date: 2020-10-16 10:16:00</span><br><span class="line">categories: [Tech]</span><br><span class="line">tags: [技术]</span><br><span class="line">password: danchaofan</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p></li>
-</ol>
-<h1 id="调试">4 调试</h1>
-<p>在Hexo目录打开终端运行</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>本地调试的时候尝试打开文章看看有没有被加密，如果没有，检查有没有正确安装npm.</p>
-<p>如果没有正确安装npm会报错 &gt; zsh: command not found: npm`.</p>
-<p>如果是Mac用户不推荐使用Brew去下载Node和npm，建议直接在<a
-target="_blank" rel="noopener" href="https://nodejs.org/en/download/">官网</a>下载Node.js，会打包下载npm。</p>
+    <div class="post-body" itemprop="articleBody"><p>​</p>
+<span id="more"></span>
+<h1 id="introduction">1 Introduction</h1>
+<p>The fundamental Cauchy-Schwarz inequality forms essential connections
+among vectors, functions, and random variables across diverse fields.
+This blog provides a concise overview of the inequality and its
+widespread applications</p>
+<h1 id="cauchy-schwarz-inequality">2 Cauchy-Schwarz inequality</h1>
+<h2 id="definition-in-inner-product-space">2.1 <strong>Definition in
+inner product space</strong></h2>
+<p>Within an inner product space, the Cauchy-Schwarz inequality asserts
+that for any vectors <span class="math inline">\(\boldsymbol{u}\)</span>
+and <span class="math inline">\(\boldsymbol{v}\)</span>:</p>
+<p><span class="math display">\[
+|\langle\boldsymbol{u}, \boldsymbol{v}\rangle| \leq\|
+\boldsymbol{u}\|\|\boldsymbol{v}\| .
+\]</span></p>
+<p>Here, <span class="math inline">\(\langle\cdot, \cdot\rangle\)</span>
+represents the inner product, and <span class="math inline">\(\|
+\boldsymbol u \|\)</span> is the induced norm defined by</p>
+<p><span class="math display">\[
+\|\boldsymbol{u}\|_2:=\sqrt{\langle\boldsymbol{u},
+\boldsymbol{u}\rangle},
+\]</span></p>
+<p>The equality holds only when <span
+class="math inline">\(\boldsymbol{u}\)</span> and <span
+class="math inline">\(\boldsymbol{v}\)</span> are linearly
+dependent.</p>
+<p>The norm and inner product relate through the condition <span
+class="math inline">\(\|\boldsymbol{u}\|_2^2=\langle\boldsymbol{u},
+\boldsymbol{u}\rangle\)</span>, where <span
+class="math inline">\(\langle\boldsymbol{u},
+\boldsymbol{u}\rangle\)</span> is always a non-negative real number.</p>
+<h2 id="special-case-in-mathbbrn">2.2 <strong>Special Case in <span
+class="math inline">\(\mathbb{R}^{n}\)</span></strong></h2>
+<p>In the Euclidean space <span
+class="math inline">\(\mathbb{R}^n\)</span>, we utilize the standard
+inner product (dot product):</p>
+<p><span class="math display">\[
+\boldsymbol{u} \cdot \boldsymbol{v}=\sum_{i=1}^n u_i v_i=u_1 v_1+u_2
+v_2+\cdots+u_n v_n
+\]</span></p>
+<p>where <span class="math inline">\(\boldsymbol{u} = [u_1, u_2,
+\ldots,u_n]\)</span> and <span class="math inline">\(\boldsymbol{v} =
+[v_1, v_2, \ldots,v_n]\)</span>.</p>
+<p>Then the Cauchy-Schwarz inequality becomes:</p>
+<p><span class="math display">\[
+\begin{equation}\begin{aligned}|\langle\boldsymbol{u},
+\boldsymbol{v}\rangle|^2 \leq&amp; \|
+\boldsymbol{u}\|^2\|\boldsymbol{v}\|^2 ,\\ \left(\sum_{i=1}^n u_i
+v_i\right)^2 \leq&amp;\left(\sum_{i=1}^n u_i^2\right)\left(\sum_{i=1}^n
+v_i^2\right).\end{aligned}
+\end{equation}
+\]</span></p>
+<p>The proof, grounded in quadratic polynomial concepts from elementary
+algebra, centers around the non-negativity of a certain quadratic
+term.</p>
+<p><span class="math display">\[
+0 \leq\left(u_1 x+v_1\right)^2+\cdots+\left(u_n
+x+v_n\right)^2=\left(\sum_i u_i^2\right) x^2+2\left(\sum_i u_i
+v_i\right) x+\sum_i v_i^2 .
+\]</span></p>
+<p>Since it is nonnegative, it has at most one real root for <span
+class="math inline">\(x\)</span>, hence its discriminant is less than or
+equal to zero. That is,</p>
+<p><span class="math display">\[
+\begin{align*}2^2\left(\sum_i u_i v_i\right)^2-4\left(\sum_i
+u_i^2\right)\left(\sum_i v_i^2\right) \leq&amp; 0\\
+\left(\sum_i u_i v_i\right)^2-\left(\sum_i u_i^2\right)\left(\sum_i
+v_i^2\right) \leq&amp; 0,\\
+\Rightarrow \left(\sum_{i=1}^n u_i v_i\right)^2 \leq\left(\sum_{i=1}^n
+u_i^2\right)\left(\sum_{i=1}^n v_i^2\right)&amp;.\end{align*}
+\]</span></p>
+<h2 id="special-case-in-mathbbl2">2.3 <strong>Special Case in <span
+class="math inline">\(\mathbb{L}^2\)</span></strong></h2>
+<p>For the inner product space of square-integrable complex-valued
+functions, the inequality becomes:</p>
+<p><span class="math display">\[
+\left|\int_{\mathbb{R}^n} f(x) {g(x)} d x\right|^2 \leq
+\int_{\mathbb{R}^n}|f(x)|^2 d x \int_{\mathbb{R}^n}|g(x)|^2 d x .
+\]</span></p>
+<p>The <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/H%C3%B6lder%27s_inequality">Hölder
+inequality</a> generalizes this result.</p>
+<p>There is a <a
+target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Cauchy-Bunyakovsky-Schwarz_Inequality/Definite_Integrals">proof</a>
+for this inequality when <span class="math inline">\(n=1\)</span>
+similar to the previous proof. It consider a non-negative quadratic term
+of</p>
+<p><span class="math display">\[
+\forall t \in \mathbb{R}: 0 \leq(t f(x)+g(x))^2
+\]</span></p>
+<h1 id="application-on-analysis-triangle-inequality">3 Application on
+Analysis: <strong>Triangle inequality</strong></h1>
+<p><span class="math display">\[
+\begin{equation}
+\|\boldsymbol{u}+\boldsymbol{v}\|
+\leq\|\boldsymbol{u}\|+\|\boldsymbol{v}\| \text {. }\end{equation}
+\]</span></p>
+<p>The triangle inequality is a direct consequence of the Cauchy–Schwarz
+inequality in any inner product space:</p>
+<p><span class="math display">\[
+\begin{array}{rlr}\|\boldsymbol{u}+\boldsymbol{v}\|^{2}= &amp;
+\langle\boldsymbol{u}+\boldsymbol{v},\boldsymbol{u}+\boldsymbol{v}\rangle
+\\= &amp;
+\|\boldsymbol{u}\|^{2}+\langle\boldsymbol{u},\boldsymbol{v}\rangle+\langle\boldsymbol{v},\boldsymbol{u}\rangle+\|\boldsymbol{v}\|^{2}\quad\\
+&amp; \text{ where
+}\langle\boldsymbol{v},\boldsymbol{u}\rangle=\overline{\langle\mathbf{u},\boldsymbol{v}\rangle}\\=
+&amp;
+\|\boldsymbol{u}\|^{2}+2\operatorname{Re}\langle\boldsymbol{u},\boldsymbol{v}\rangle+\|\boldsymbol{v}\|^{2}\\
+&amp; \operatorname{Re}\text{ denotes the real part}\\\leq &amp;
+\|\boldsymbol{u}\|^{2}+2|\langle\boldsymbol{u},\boldsymbol{v}\rangle|+\|\boldsymbol{v}\|^{2}\\\leq
+&amp;
+\|\boldsymbol{u}\|^{2}+2\|\boldsymbol{u}\|\|\boldsymbol{v}\|+\|\boldsymbol{v}\|^{2}\\
+&amp; \text{using Cauchy-Schwarz inequality } &amp; \text{ }\\= &amp;
+(\|\boldsymbol{u}\|+\|\boldsymbol{v}\|)^{2}.\end{array}
+\]</span></p>
+<p>Taking the square root on both sides yields the triangle
+inequality.</p>
+<h1 id="application-in-probability-theory-covariance-inequality">4
+Application in Probability theory: Covariance inequality</h1>
+<p>Let <span class="math inline">\(X\)</span> and <span
+class="math inline">\(Y\)</span> be random variables, then the
+covariance inequality is given by:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(X,Y)^{2}\leq\operatorname{Var}(X)\operatorname{Var}(Y)
+\]</span></p>
+<p>To prove this, we can define an <strong>inner product</strong> on the
+set of random variables using the expectation of their product,</p>
+<p><span class="math display">\[
+\langle X, Y\rangle:=\mathrm{E}(X Y)
+\]</span></p>
+<p>the Cauchy-Schwarz inequality becomes</p>
+<p><span class="math display">\[
+|\mathrm{E}(X Y)|^2 \leq \mathrm{E}\left(X^2\right)
+\mathrm{E}\left(Y^2\right) .
+\]</span></p>
+<p>We can prove the covariance inequality using this Cauchy-Schwarz
+inequality.</p>
+<p>Let <span class="math inline">\(\mu=\mathrm{E}(X)\)</span> and <span
+class="math inline">\(\nu=\mathrm{E}(Y)\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}|\operatorname{Cov}(X,Y)|^{2}= &amp;
+|\mathrm{E}((X-\mu)(Y-\nu))|^{2} \\= &amp; |\langle
+X-\mu,Y-\nu\rangle|^{2}\\ &amp; \text{(Def of inner product)} \\ \leq
+&amp; \langle X-\mu,X-\mu\rangle\langle Y-\nu,Y-\nu\rangle\\ &amp;
+(\text{Cauchy-Schwarz inequality}) \\= &amp;
+\mathrm{E}\left((X-\mu)^{2}\right)\mathrm{E}\left((Y-\nu)^{2}\right)\\=
+&amp; \operatorname{Var}(X)\operatorname{Var}(Y),\end{aligned}
+\]</span></p>
+<h1 id="reference">5 Reference</h1>
+<p><a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality">https://en.wikipedia.org/wiki/Cauchy–Schwarz_inequality</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/H%C3%B6lder%27s_inequality">https://en.wikipedia.org/wiki/Hölder's_inequality</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Cauchy-Bunyakovsky-Schwarz_Inequality/Definite_Integrals">https://proofwiki.org/wiki/Cauchy-Bunyakovsky-Schwarz_Inequality/Definite_Integrals</a></p>
 
     </div>
 
@@ -317,21 +441,18 @@ target="_blank" rel="noopener" href="https://nodejs.org/en/download/">官网</a>
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+              <a href="/tags/%E7%90%86%E8%AE%BA/" rel="tag"># 理论</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/05/26/notion_inline_math/" rel="prev" title="Notion上打行内公式｜网页端和Mac电脑端">
-                  <i class="fa fa-chevron-left"></i> Notion上打行内公式｜网页端和Mac电脑端
+                <a href="/2023/07/23/Tech4/" rel="prev" title="Create Independent Copy of Nested List in Python">
+                  <i class="fa fa-chevron-left"></i> Create Independent Copy of Nested List in Python
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/07/01/Tech3/" rel="next" title="整理论文神器--Zotero">
-                  整理论文神器--Zotero <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
