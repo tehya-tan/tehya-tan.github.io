@@ -19,34 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="简单介绍做Flomo手机笔记&#x2F;摘抄的几种方法。">
+    <meta name="description" content="​">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flomo：趁手的笔记本 (一)">
-<meta property="og:url" content="http://example.com/2022/09/18/flomo1/index.html">
+<meta property="og:title" content="Connect a Local Folder to a GitHub Repository and Ignore Specific Folders">
+<meta property="og:url" content="http://example.com/2023/08/20/Tech5/index.html">
 <meta property="og:site_name" content="Tehya&#39;s Blog">
-<meta property="og:description" content="简单介绍做Flomo手机笔记&#x2F;摘抄的几种方法。">
+<meta property="og:description" content="​">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Image_0922/flomo2.jpeg?raw=true">
-<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Image_0922/Flomo_phone1.gif?raw=true">
-<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Image_0922/Flomo_phone2.gif?raw=true">
-<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Image_0922/Flomo_shortcut1.gif?raw=true">
-<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Image_0922/Flomo_shortcut2.png?raw=true">
-<meta property="article:published_time" content="2022-09-18T20:41:00.000Z">
-<meta property="article:modified_time" content="2023-06-27T23:57:11.000Z">
+<meta property="article:published_time" content="2023-08-20T21:07:00.000Z">
+<meta property="article:modified_time" content="2023-08-20T22:12:23.715Z">
 <meta property="article:author" content="Tehya">
-<meta property="article:tag" content="App">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Image_0922/flomo2.jpeg?raw=true">
 
 
-<link rel="canonical" href="http://example.com/2022/09/18/flomo1/">
+<link rel="canonical" href="http://example.com/2023/08/20/Tech5/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/09/18/flomo1/","path":"2022/09/18/flomo1/","title":"Flomo：趁手的笔记本 (一)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/08/20/Tech5/","path":"2023/08/20/Tech5/","title":"Connect a Local Folder to a GitHub Repository and Ignore Specific Folders"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Flomo：趁手的笔记本 (一) | Tehya's Blog</title>
+<title>Connect a Local Folder to a GitHub Repository and Ignore Specific Folders | Tehya's Blog</title>
   
 
 
@@ -132,7 +126,10 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-text">2 下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%8B%E6%9C%BA%E7%AC%94%E8%AE%B0"><span class="nav-text">3 手机笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#app%E5%86%85%E8%BE%93%E5%85%A5"><span class="nav-text">3.1 App内输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E4%BF%A1%E8%BE%93%E5%85%A5"><span class="nav-text">3.2 微信输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%8B%E7%90%86%E6%83%B3%E8%81%94%E5%90%88"><span class="nav-text">3.3 看理想联合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4"><span class="nav-text">3.4 快捷指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-text">4 后记</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-text">1 Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#connect-a-local-folder-to-a-github-repository"><span class="nav-text">2 Connect a Local
+Folder to a Github Repository</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ignore-folder-for-git-repositories"><span class="nav-text">3 Ignore Folder for Git
+Repositories</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#push-all-changes-except-the-ignored-folders"><span class="nav-text">4 Push all changes
+except the ignored folders</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">5 Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -189,7 +186,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/18/flomo1/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/20/Tech5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -202,12 +199,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Flomo：趁手的笔记本 (一) | Tehya's Blog">
+      <meta itemprop="name" content="Connect a Local Folder to a GitHub Repository and Ignore Specific Folders | Tehya's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Flomo：趁手的笔记本 (一)
+          Connect a Local Folder to a GitHub Repository and Ignore Specific Folders
         </h1>
 
         <div class="post-meta-container">
@@ -217,15 +214,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-09-18 16:41:00" itemprop="dateCreated datePublished" datetime="2022-09-18T16:41:00-04:00">2022-09-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-06-27 19:57:11" itemprop="dateModified" datetime="2023-06-27T19:57:11-04:00">2023-06-27</time>
+      <time title="Created: 2023-08-20 17:07:00 / Modified: 18:12:23" itemprop="dateCreated datePublished" datetime="2023-08-20T17:07:00-04:00">2023-08-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -253,8 +244,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2022/09/18/flomo1/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/09/18/flomo1/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2023/08/20/Tech5/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/08/20/Tech5/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -267,78 +258,73 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>简单介绍做Flomo手机笔记/摘抄的几种方法。 <span id="more"></span> # 1 前言</p>
-<p>这个系列会总结一些我日常经常使用的flomo功能。</p>
-<p>非常安利这个随手记笔记的app。</p>
-<p><img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Image_0922/flomo2.jpeg?raw=true" width="500" height="430" /></p>
-<p>其他更详细的功能推荐去官网查询。</p>
-<blockquote>
-<p>官网: <a
-target="_blank" rel="noopener" href="https://help.flomoapp.com/">https://help.flomoapp.com/</a></p>
-</blockquote>
-<h1 id="下载">2 下载</h1>
-<p>下载链接: <a
-target="_blank" rel="noopener" href="https://help.flomoapp.com/basic/app.html">https://help.flomoapp.com/basic/app.html</a></p>
-<h1 id="手机笔记">3 手机笔记</h1>
-<figure>
-<img
-src="https://github.com/tehya-tan/MarkdownImages/blob/master/Image_0922/flomo1.png?raw=true"
-alt="Untitled" />
-<figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
-<h2 id="app内输入">3.1 App内输入</h2>
-<p>Flomo的笔记记录形式和发微博很像，没有什么记录的障碍，很方便随手记。</p>
-<p>相比之下，当我用有道笔记或者印象笔记的时候，我需要先新建一个笔记才能开始记笔记，这就会产生一种「我必须要记录有价值的完整的笔记」的压力，导致很多东西都不会写进去。</p>
-<p>而flomo这种毫无压力的记录形式，让我们记笔记没有任何障碍，甚至很适合做情绪记录。</p>
-<p><img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Image_0922/Flomo_phone1.gif?raw=true" width="350" height="600" /></p>
-<h2 id="微信输入">3.2 微信输入</h2>
-<blockquote>
-<p>教程: <a
-target="_blank" rel="noopener" href="https://help.flomoapp.com/basic/wechat-input.html">https://help.flomoapp.com/basic/wechat-input.html</a></p>
-</blockquote>
-<p>大致流程:</p>
+    <div class="post-body" itemprop="articleBody"><p>​</p>
+<span id="more"></span>
+<h1 id="introduction">1 Introduction</h1>
+<p>This blog post introduce how to connect local files to GitHub and
+selectively sync specific folders, like your coding work, while
+excluding others (e.g., data folders). You can achieve this by using a
+<code>.gitignore</code> file to tell Git what to exclude when pushing
+changes to your GitHub repository.</p>
+<h1 id="connect-a-local-folder-to-a-github-repository">2 Connect a Local
+Folder to a Github <strong>Repository</strong></h1>
 <ol type="1">
-<li>关注flomo公众号</li>
-<li>绑定自己的账号</li>
-<li>发送给flomo公众号的信息会自动保存到flomo</li>
+<li><p>Create a repository on Github</p>
+<p><img
+src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20082023/Untitled.png?raw=true" /></p>
+<ul>
+<li>GitHub provides instructions to help you set up your
+repository.</li>
+</ul>
+<p><img
+src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20082023/Untitled%201.png?raw=true" /></p></li>
+<li><p>Open terminal in the working folder and run commands as
+instructed</p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# Repository&quot;</span> &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https://github.com/tehya-tan/Repository.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure></p></li>
 </ol>
-<figure>
-<img
-src="https://flomo-resource.oss-cn-shanghai.aliyuncs.com/101/004.gif"
-alt="https://flomo-resource.oss-cn-shanghai.aliyuncs.com/101/004.gif" />
-<figcaption
-aria-hidden="true">https://flomo-resource.oss-cn-shanghai.aliyuncs.com/101/004.gif</figcaption>
-</figure>
-<p>这个功能也非常棒，仿佛像聊微信一样记笔记，更加降低了记录的压力。</p>
-<h2 id="看理想联合">3.3 看理想联合</h2>
-<p>Flomo和看理想有联合，所以看理想的文稿是可以直接作为笔记分享到Flomo。</p>
-<p><img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Image_0922/Flomo_phone2.gif?raw=true" width="350" height="600" /></p>
-<h2 id="快捷指令">3.4 快捷指令</h2>
-<blockquote>
-<p>💰充钱提醒：这个功能需要获取自己的
-API，也就是升级成pro会员才能使用。</p>
-</blockquote>
-<p>Flomo的快捷指令能把所有在手机选中的文字作为笔记分享到flomo里，而且分享后能自己添加想要的标签。特别适合对公众号文章做笔记，也适用于知乎、豆瓣等阅读软件。</p>
-<p><img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Image_0922/Flomo_shortcut1.gif?raw=true" width="350" height="600" />
-<!--![Flomo_shortcut1.gif](https://github.com/tehya-tan/MarkdownImages/blob/master/Image_0922/Flomo_shortcut1.gif?raw=true)--></p>
-<p>安装提示：</p>
 <ul>
-<li><p>这个快捷指令是由o1xinsight制作，需要关注公众号，回复「flomo」获取快捷指令。</p></li>
-<li><p>下载了快捷指令之后需要按安装指南👇 输入你的flomo API。</p>
-<blockquote>
+<li>Now, this folder is connected to the Git repository on the
+account.</li>
+</ul>
+<h1 id="ignore-folder-for-git-repositories">3 Ignore Folder for Git
+<strong>Repositories</strong></h1>
+<ol type="1">
+<li><p>Create or open the <code>.gitignore</code> file: If you don't
+already have a <code>.gitignore</code> file in your project's root
+directory, create one. You can use any text editor or run the following
+command to create this file.</p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> .gitignore</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Add folder names to <code>.gitignore</code> and save: Open the
+<code>.gitignore</code> file and add the names of the folders you want
+to ignore, each on a separate line.</p>
+<p>For example, if you want to ignore two folders named
+<code>folder1</code> and <code>folder2</code>, add the following lines
+to <code>.gitignore</code>:</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">folder1/</span><br><span class="line">folder2/</span><br></pre></td></tr></table></figure></p>
+<p>You can continue adding more folder names, each on a new
+line.</p></li>
+<li><p>Commit the <code>.gitignore</code> file:</p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .gitignore</span><br><span class="line">git commit -m <span class="string">&quot;Added folders to .gitignore&quot;</span></span><br></pre></td></tr></table></figure></p>
+<p>Note: The <code>.gitignore</code> file itself needs to be committed
+to make the ignore rules effective.</p></li>
+</ol>
+<h1 id="push-all-changes-except-the-ignored-folders">4 Push all changes
+except the ignored folders</h1>
+<ol type="1">
+<li>Enter <code>git add --all</code> to add all the files or changes to
+the repository.</li>
+<li>Enter <code>git status</code> to see the changes to be
+committed.</li>
+<li>Enter <code>git commit -m '&lt;commit_message&gt;'</code> at the
+command line to commit new files/changes to the local repository.</li>
+<li>Use <code>git push</code> to publish your local commits</li>
+</ol>
+<p>We also can push changes only on specific <strong>folder</strong> and
+files by replacing the step 1 by</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add folder</span><br></pre></td></tr></table></figure>
+<h1 id="reference">5 Reference</h1>
 <p><a
-target="_blank" rel="noopener" href="https://help.flomoapp.com/advance/extension/ios-shortcut-with-tag.html#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D">https://help.flomoapp.com/advance/extension/ios-shortcut-with-tag.html#功能介绍</a></p>
-</blockquote></li>
-<li><p>编辑flomo的快捷指令第二个Text文本框就能自定义弹出来的自选标签啦
-<img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Image_0922/Flomo_shortcut2.png?raw=true" width="300" height="650" /></p></li>
-</ul>
-<h1 id="后记">4 后记</h1>
-<ul>
-<li>Flomo
-app的设计让记录变得更加没有障碍，想法也更容易在流动的思绪中被抓住。</li>
-<li>以前阅读公众号看到有意思的句子都需要复制粘贴到电子笔记本，现在用快捷指令真的太省心了，还能自定义标签。</li>
-<li>Flomo和看理想的「弱弱联合」确实方便了我摘抄看理想的文稿，如果还能像快捷指令一样自定义标签在笔记的头部就好了。</li>
-</ul>
+target="_blank" rel="noopener" href="https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github">https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github</a></p>
 
     </div>
 
@@ -365,21 +351,18 @@ app的设计让记录变得更加没有障碍，想法也更容易在流动的�
 </div>
 
           <div class="post-tags">
-              <a href="/tags/App/" rel="tag"># App</a>
+              <a href="/tags/Git/" rel="tag"># Git</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/02/26/Stat_Notion_Note/" rel="prev" title="How to take Math/Statistics notes in Notion?">
-                  <i class="fa fa-chevron-left"></i> How to take Math/Statistics notes in Notion?
+                <a href="/2023/08/13/CSI/" rel="prev" title="Exploring the Cauchy-Schwarz Inequality and Its Applications">
+                  <i class="fa fa-chevron-left"></i> Exploring the Cauchy-Schwarz Inequality and Its Applications
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/06/18/flomo2/" rel="next" title="Flomo：趁手的笔记本 (二)">
-                  Flomo：趁手的笔记本 (二) <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
