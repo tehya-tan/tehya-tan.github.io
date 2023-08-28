@@ -142,7 +142,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -206,7 +206,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-08-27 22:22:00 / Modified: 22:22:23" itemprop="dateCreated datePublished" datetime="2023-08-27T22:22:00-04:00">2023-08-27</time>
+      <time title="Created: 2023-08-27 22:22:00 / Modified: 22:26:40" itemprop="dateCreated datePublished" datetime="2023-08-27T22:22:00-04:00">2023-08-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -249,129 +249,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-<h1 id="what-is-jensens-inequality">1 <strong>What is Jensen's
-Inequality?</strong></h1>
-<p>In mathematics, Jensen's Inequality, named after Danish mathematician
-Johan Jensen, connects a convex function's value within an integral to
-the integral of that convex function.</p>
-<p>This concept, first proven by Jensen in 1906, builds on Otto Hölder's
-earlier 1889 proof for doubly-differentiable functions.</p>
-<h2 id="convex-and-concave-function">1.1 <strong>Convex and Concave
-Function</strong></h2>
-<p>To understand the inequality itself, we first need to distinguish
-between convex and concave functions:</p>
-<ul>
-<li><p><strong>Convex Function:</strong> A function is convex if, for
-any two points in its domain, the line segment connecting these two
-points lies above the graph of the function. In mathematical terms, for
-a convex function <span class="math inline">\(\varphi\)</span>, if <span
-class="math inline">\(x_1\)</span> and <span
-class="math inline">\(x_2\)</span> are in its domain and <span
-class="math inline">\(0 \leq \theta \leq 1\)</span>, then:</p>
-<p><span class="math display">\[\varphi(\theta x_1 + (1-\theta) x_2)
-\leq \theta \varphi(x_1) + (1-\theta) \varphi(x_2)
-  \]</span></p></li>
-<li><p><strong>Concave Function:</strong> A function is concave if the
-opposite holds true; that is, the line segment connecting any two points
-lies below the graph of the function.</p></li>
-</ul>
-<h1 id="finite-form-of-jensens-inequality">2 <strong>Finite form of
-Jensen's Inequality</strong></h1>
-<p>Now, let's state Jensen's Inequality:</p>
-<ul>
-<li><p>For a real convex function <span
-class="math inline">\(\varphi\)</span> and real numbers <span
-class="math inline">\(x_1, x_2, \ldots, x_n\)</span> in its domain, if
-<span class="math inline">\(\theta_1, \theta_2, \ldots,
-\theta_n\)</span> are non-negative numbers that sum to 1, then:</p>
-<p><span class="math display">\[\varphi(\theta_1 x_1 + \theta_2 x_2 +
-\ldots + \theta_n x_n) \leq \theta_1 \varphi(x_1) + \theta_2
-\varphi(x_2) + \ldots + \theta_n \varphi(x_n)
-  \]</span></p>
-<ul>
-<li>In other words, a convex function <span
-class="math inline">\(\varphi\)</span> applied to the weighted average
-of its domain points is always less than or equal to the weighted
-average of the function values at those points.</li>
-<li>Equality holds if and only if <span
-class="math inline">\(x_1=x_2=\cdots=x_n\)</span> or <span
-class="math inline">\(\varphi\)</span> is linear on a domain containing
-<span class="math inline">\(x_1, x_2, \cdots, x_n\)</span>.</li>
-</ul></li>
-<li><p>For concave function <span
-class="math inline">\(\varphi\)</span>, we have</p>
-<p><span class="math display">\[
-  \varphi(\theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_n x_n) \geq
-\theta_1 \varphi(x_1) + \theta_2 \varphi(x_2) + \ldots + \theta_n
-\varphi(x_n)
-  \]</span></p></li>
-</ul>
-<h2 id="examples">2.1 Examples</h2>
-<ul>
-<li><p><strong>When <span class="math inline">\(\theta_i =
-\frac{1}{n}\)</span></strong></p>
-<p>For a real convex function <span
-class="math inline">\(\varphi\)</span>, numbers <span
-class="math inline">\(x_{1}, x_{2}, \ldots, x_{n}\)</span> in its
-domain,</p>
-<p><span class="math display">\[\varphi\left(\frac{\sum x_{i}}{n}\right)
-\leq \frac{\sum \varphi\left(x_{i}\right)}{n}
-  \]</span></p></li>
-<li><p><strong>When <span class="math inline">\(\theta_i =
-\frac{1}{n}\)</span> and <span
-class="math inline">\(\varphi(x)=x^2\)</span></strong></p>
-<p>Let <span class="math inline">\(x_{1}, \ldots, x_{n}\)</span> be real
-numbers. Then</p>
-<p><span class="math display">\[A_{n}=\frac{x_{1}+\ldots+x_{n}}{n} \leq
-Q_{n}=\sqrt{\frac{x_{1}^{2}+\ldots+x_{n}^{2}}{n}}
-  \]</span></p>
-<p>which gives</p>
-<p><span class="math display">\[
-  x_{1}+\ldots+x_{n} \leq \sqrt{n(x_{1}^{2}+\ldots+x_{n}^{2})}
-  \]</span></p></li>
-</ul>
-<h1 id="measure-theoretic-form-of-jensens-inequality">3
-<strong>Measure-theoretic form of Jensen's Inequality</strong></h1>
-<p>Let</p>
-<ul>
-<li>Let <span class="math inline">\((\Omega, A, \mu)\)</span> be a
-measurable space.</li>
-<li>Let <span class="math inline">\(f: \Omega \rightarrow
-\mathbb{R}\)</span> be a <span
-class="math inline">\(\mu\)</span>-measurable function</li>
-<li><span class="math inline">\(\varphi: \mathbb{R} \rightarrow
-\mathbb{R}\)</span> is convex</li>
-</ul>
-<p>Then</p>
-<p><span class="math display">\[
-\varphi\left(\int_{\Omega} f \mathrm{~d} \mu\right) \leq \int_{\Omega}
-\varphi \circ f \mathrm{~d} \mu
-\]</span></p>
-<h2 id="example-in-probability-space">3.1 Example in probability
-space</h2>
-<p>Let</p>
-<ul>
-<li>Let <span class="math inline">\((\Omega, \mathfrak{F},
-\mathrm{P})\)</span> be a probability space</li>
-<li><span class="math inline">\(X\)</span> is an integrable real-valued
-random variable</li>
-<li><span class="math inline">\(\varphi\)</span> a convex function.</li>
-</ul>
-<p>Then</p>
-<p><span class="math display">\[
-\varphi(\mathrm{E}[X]) \leq \mathrm{E}[\varphi(X)]
-\]</span></p>
-<p>Now, consider the function <span class="math inline">\(f\)</span> as
-a random variable <span class="math inline">\(X\)</span>, and the
-integral with respect to <span class="math inline">\(\mu\)</span> as an
-expected value, denoted as <span
-class="math inline">\(\mathrm{E}\)</span>.</p>
-<h1 id="reference">4 Reference</h1>
-<p><a
-target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Jensen%27s_inequality">Jensen's
-inequality - Wikipedia</a></p>
-
+          <p>​</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/08/27/Theory1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
