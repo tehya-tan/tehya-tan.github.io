@@ -19,28 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="hexo-blog-encrypt的简单使用">
+    <meta name="description" content="1 What is Jensen&#39;s Inequality? In mathematics, Jensen&#39;s Inequality, named after Danish mathematician Johan Jensen, connects a convex function&#39;s value within an integral to the integral of that convex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何加密Hexo博客文章">
-<meta property="og:url" content="http://example.com/2020/12/13/encrypt/index.html">
+<meta property="og:title" content="Simple Notes on Jensen&#39;s Inequality">
+<meta property="og:url" content="http://example.com/2023/08/27/Theory1/index.html">
 <meta property="og:site_name" content="Tehya&#39;s Blog">
-<meta property="og:description" content="hexo-blog-encrypt的简单使用">
+<meta property="og:description" content="1 What is Jensen&#39;s Inequality? In mathematics, Jensen&#39;s Inequality, named after Danish mathematician Johan Jensen, connects a convex function&#39;s value within an integral to the integral of that convex">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-14T00:00:00.000Z">
-<meta property="article:modified_time" content="2023-01-10T03:55:28.000Z">
+<meta property="article:published_time" content="2023-08-28T02:22:00.000Z">
+<meta property="article:modified_time" content="2023-08-28T02:22:23.254Z">
 <meta property="article:author" content="Tehya">
-<meta property="article:tag" content="技术">
+<meta property="article:tag" content="Theory">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2020/12/13/encrypt/">
+<link rel="canonical" href="http://example.com/2023/08/27/Theory1/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2020/12/13/encrypt/","path":"2020/12/13/encrypt/","title":"如何加密Hexo博客文章"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/08/27/Theory1/","path":"2023/08/27/Theory1/","title":"Simple Notes on Jensen's Inequality"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>如何加密Hexo博客文章 | Tehya's Blog</title>
+<title>Simple Notes on Jensen's Inequality | Tehya's Blog</title>
   
 
 
@@ -126,7 +126,12 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">1 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-text">2 下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">3 配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%83%E8%AF%95"><span class="nav-text">4 调试</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-jensens-inequality"><span class="nav-text">1 What is Jensen&#39;s
+Inequality?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#convex-and-concave-function"><span class="nav-text">1.1 Convex and Concave
+Function</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#finite-form-of-jensens-inequality"><span class="nav-text">2 Finite form of
+Jensen&#39;s Inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#examples"><span class="nav-text">2.1 Examples</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#measure-theoretic-form-of-jensens-inequality"><span class="nav-text">3
+Measure-theoretic form of Jensen&#39;s Inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#example-in-probability-space"><span class="nav-text">3.1 Example in probability
+space</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">4 Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -183,7 +188,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/13/encrypt/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/27/Theory1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -196,12 +201,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="如何加密Hexo博客文章 | Tehya's Blog">
+      <meta itemprop="name" content="Simple Notes on Jensen's Inequality | Tehya's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          如何加密Hexo博客文章
+          Simple Notes on Jensen's Inequality
         </h1>
 
         <div class="post-meta-container">
@@ -211,15 +216,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2020-12-13 19:00:00" itemprop="dateCreated datePublished" datetime="2020-12-13T19:00:00-05:00">2020-12-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-09 22:55:28" itemprop="dateModified" datetime="2023-01-09T22:55:28-05:00">2023-01-09</time>
+      <time title="Created: 2023-08-27 22:22:00 / Modified: 22:22:23" itemprop="dateCreated datePublished" datetime="2023-08-27T22:22:00-04:00">2023-08-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -227,7 +226,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+          <a href="/categories/Theory/" itemprop="url" rel="index"><span itemprop="name">Theory</span></a>
         </span>
     </span>
 
@@ -247,8 +246,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2020/12/13/encrypt/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/13/encrypt/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2023/08/27/Theory1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/08/27/Theory1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -261,36 +260,128 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>hexo-blog-encrypt的简单使用 <span id="more"></span></p>
-<h1 id="前言">1 前言</h1>
-<p>加密Hexo博客的文章只需要安装一个插件 <a
-target="_blank" rel="noopener" href="https://github.com/D0n9X1n/hexo-blog-encrypt">hexo-blog-encrypt</a>,
-再通过修改每个Markdown文件的头部设置就能对部分文章进行加密。</p>
-<h1 id="下载">2 下载</h1>
-<p>首先确保已经安装了Node,可以使用npm命令行.</p>
-<p>MAC打开终端(Windows打开CMD)输入</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-blog-encrypt</span><br></pre></td></tr></table></figure>
-<p>或者 (如果安装了Yarn)</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add hexo-blog-encrypt </span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>已下载Node并使用npm下载的朋友如果报错
-<code>zsh: command not found: npm</code>请移步调试部分</p>
-</blockquote>
-<h1 id="配置">3 配置</h1>
-<ol type="1">
-<li><p>下面修改Hexo根目录的配置文件<code>_config.yml</code>，增加
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">encrypt:</span> </span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span>  </span><br><span class="line">  <span class="attr">abstract:</span> <span class="string">这是一篇加密文章。</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">您好,</span> <span class="string">这里需要密码.</span></span><br></pre></td></tr></table></figure> &gt;
-更多的设置可以查看github上面的ReadMe(https://github.com/D0n9X1n/hexo-blog-encrypt)</p></li>
-<li><p>接着找到你想要加密的文章，在头部的设置里面添加一行<code>password:yourpassword</code>,
-比如这样 <figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 如何加密Hexo博客文章</span><br><span class="line">toc: true</span><br><span class="line">date: 2020-10-16 10:16:00</span><br><span class="line">categories: [Tech]</span><br><span class="line">tags: [技术]</span><br><span class="line">password: danchaofan</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p></li>
-</ol>
-<h1 id="调试">4 调试</h1>
-<p>在Hexo目录打开终端运行</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>本地调试的时候尝试打开文章看看有没有被加密，如果没有，检查有没有正确安装npm.</p>
-<p>如果没有正确安装npm会报错 &gt; zsh: command not found: npm`.</p>
-<p>如果是Mac用户不推荐使用Brew去下载Node和npm，建议直接在<a
-target="_blank" rel="noopener" href="https://nodejs.org/en/download/">官网</a>下载Node.js，会打包下载npm。</p>
+    <div class="post-body" itemprop="articleBody"><span id="more"></span>
+<h1 id="what-is-jensens-inequality">1 <strong>What is Jensen's
+Inequality?</strong></h1>
+<p>In mathematics, Jensen's Inequality, named after Danish mathematician
+Johan Jensen, connects a convex function's value within an integral to
+the integral of that convex function.</p>
+<p>This concept, first proven by Jensen in 1906, builds on Otto Hölder's
+earlier 1889 proof for doubly-differentiable functions.</p>
+<h2 id="convex-and-concave-function">1.1 <strong>Convex and Concave
+Function</strong></h2>
+<p>To understand the inequality itself, we first need to distinguish
+between convex and concave functions:</p>
+<ul>
+<li><p><strong>Convex Function:</strong> A function is convex if, for
+any two points in its domain, the line segment connecting these two
+points lies above the graph of the function. In mathematical terms, for
+a convex function <span class="math inline">\(\varphi\)</span>, if <span
+class="math inline">\(x_1\)</span> and <span
+class="math inline">\(x_2\)</span> are in its domain and <span
+class="math inline">\(0 \leq \theta \leq 1\)</span>, then:</p>
+<p><span class="math display">\[\varphi(\theta x_1 + (1-\theta) x_2)
+\leq \theta \varphi(x_1) + (1-\theta) \varphi(x_2)
+  \]</span></p></li>
+<li><p><strong>Concave Function:</strong> A function is concave if the
+opposite holds true; that is, the line segment connecting any two points
+lies below the graph of the function.</p></li>
+</ul>
+<h1 id="finite-form-of-jensens-inequality">2 <strong>Finite form of
+Jensen's Inequality</strong></h1>
+<p>Now, let's state Jensen's Inequality:</p>
+<ul>
+<li><p>For a real convex function <span
+class="math inline">\(\varphi\)</span> and real numbers <span
+class="math inline">\(x_1, x_2, \ldots, x_n\)</span> in its domain, if
+<span class="math inline">\(\theta_1, \theta_2, \ldots,
+\theta_n\)</span> are non-negative numbers that sum to 1, then:</p>
+<p><span class="math display">\[\varphi(\theta_1 x_1 + \theta_2 x_2 +
+\ldots + \theta_n x_n) \leq \theta_1 \varphi(x_1) + \theta_2
+\varphi(x_2) + \ldots + \theta_n \varphi(x_n)
+  \]</span></p>
+<ul>
+<li>In other words, a convex function <span
+class="math inline">\(\varphi\)</span> applied to the weighted average
+of its domain points is always less than or equal to the weighted
+average of the function values at those points.</li>
+<li>Equality holds if and only if <span
+class="math inline">\(x_1=x_2=\cdots=x_n\)</span> or <span
+class="math inline">\(\varphi\)</span> is linear on a domain containing
+<span class="math inline">\(x_1, x_2, \cdots, x_n\)</span>.</li>
+</ul></li>
+<li><p>For concave function <span
+class="math inline">\(\varphi\)</span>, we have</p>
+<p><span class="math display">\[
+  \varphi(\theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_n x_n) \geq
+\theta_1 \varphi(x_1) + \theta_2 \varphi(x_2) + \ldots + \theta_n
+\varphi(x_n)
+  \]</span></p></li>
+</ul>
+<h2 id="examples">2.1 Examples</h2>
+<ul>
+<li><p><strong>When <span class="math inline">\(\theta_i =
+\frac{1}{n}\)</span></strong></p>
+<p>For a real convex function <span
+class="math inline">\(\varphi\)</span>, numbers <span
+class="math inline">\(x_{1}, x_{2}, \ldots, x_{n}\)</span> in its
+domain,</p>
+<p><span class="math display">\[\varphi\left(\frac{\sum x_{i}}{n}\right)
+\leq \frac{\sum \varphi\left(x_{i}\right)}{n}
+  \]</span></p></li>
+<li><p><strong>When <span class="math inline">\(\theta_i =
+\frac{1}{n}\)</span> and <span
+class="math inline">\(\varphi(x)=x^2\)</span></strong></p>
+<p>Let <span class="math inline">\(x_{1}, \ldots, x_{n}\)</span> be real
+numbers. Then</p>
+<p><span class="math display">\[A_{n}=\frac{x_{1}+\ldots+x_{n}}{n} \leq
+Q_{n}=\sqrt{\frac{x_{1}^{2}+\ldots+x_{n}^{2}}{n}}
+  \]</span></p>
+<p>which gives</p>
+<p><span class="math display">\[
+  x_{1}+\ldots+x_{n} \leq \sqrt{n(x_{1}^{2}+\ldots+x_{n}^{2})}
+  \]</span></p></li>
+</ul>
+<h1 id="measure-theoretic-form-of-jensens-inequality">3
+<strong>Measure-theoretic form of Jensen's Inequality</strong></h1>
+<p>Let</p>
+<ul>
+<li>Let <span class="math inline">\((\Omega, A, \mu)\)</span> be a
+measurable space.</li>
+<li>Let <span class="math inline">\(f: \Omega \rightarrow
+\mathbb{R}\)</span> be a <span
+class="math inline">\(\mu\)</span>-measurable function</li>
+<li><span class="math inline">\(\varphi: \mathbb{R} \rightarrow
+\mathbb{R}\)</span> is convex</li>
+</ul>
+<p>Then</p>
+<p><span class="math display">\[
+\varphi\left(\int_{\Omega} f \mathrm{~d} \mu\right) \leq \int_{\Omega}
+\varphi \circ f \mathrm{~d} \mu
+\]</span></p>
+<h2 id="example-in-probability-space">3.1 Example in probability
+space</h2>
+<p>Let</p>
+<ul>
+<li>Let <span class="math inline">\((\Omega, \mathfrak{F},
+\mathrm{P})\)</span> be a probability space</li>
+<li><span class="math inline">\(X\)</span> is an integrable real-valued
+random variable</li>
+<li><span class="math inline">\(\varphi\)</span> a convex function.</li>
+</ul>
+<p>Then</p>
+<p><span class="math display">\[
+\varphi(\mathrm{E}[X]) \leq \mathrm{E}[\varphi(X)]
+\]</span></p>
+<p>Now, consider the function <span class="math inline">\(f\)</span> as
+a random variable <span class="math inline">\(X\)</span>, and the
+integral with respect to <span class="math inline">\(\mu\)</span> as an
+expected value, denoted as <span
+class="math inline">\(\mathrm{E}\)</span>.</p>
+<h1 id="reference">4 Reference</h1>
+<p><a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Jensen%27s_inequality">Jensen's
+inequality - Wikipedia</a></p>
 
     </div>
 
@@ -317,21 +408,18 @@ target="_blank" rel="noopener" href="https://nodejs.org/en/download/">官网</a>
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+              <a href="/tags/Theory/" rel="tag"># Theory</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/05/26/notion_inline_math/" rel="prev" title="Notion上打行内公式｜网页端和Mac电脑端">
-                  <i class="fa fa-chevron-left"></i> Notion上打行内公式｜网页端和Mac电脑端
+                <a href="/2023/08/20/Tech5/" rel="prev" title="Connect a Local Folder to a GitHub Repository and Ignore Specific Folders">
+                  <i class="fa fa-chevron-left"></i> Connect a Local Folder to a GitHub Repository and Ignore Specific Folders
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/07/01/Tech3/" rel="next" title="整理论文神器--Zotero">
-                  整理论文神器--Zotero <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
