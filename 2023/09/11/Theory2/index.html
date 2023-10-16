@@ -27,7 +27,7 @@
 <meta property="og:description" content="​">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-11T04:00:00.000Z">
-<meta property="article:modified_time" content="2023-09-11T04:07:57.845Z">
+<meta property="article:modified_time" content="2023-09-17T21:10:26.366Z">
 <meta property="article:author" content="Tehya">
 <meta property="article:tag" content="Theory">
 <meta name="twitter:card" content="summary">
@@ -211,9 +211,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-09-11 00:00:00 / Modified: 00:07:57" itemprop="dateCreated datePublished" datetime="2023-09-11T00:00:00-04:00">2023-09-11</time>
+      <time title="Created: 2023-09-11 00:00:00" itemprop="dateCreated datePublished" datetime="2023-09-11T00:00:00-04:00">2023-09-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-17 17:10:26" itemprop="dateModified" datetime="2023-09-17T17:10:26-04:00">2023-09-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -258,124 +264,60 @@
     <div class="post-body" itemprop="articleBody"><p>​</p>
 <span id="more"></span>
 <h1 id="introduction">1 Introduction</h1>
-<p>In this blog post, we'll explore fitting a regression model with
-constraints on the parameters.</p>
-<p>We'll start with the basics of multiple regression, where we have a
-dependent variable <span class="math inline">\(Y_i \in
-\mathbb{R}\)</span> and <span class="math inline">\(p\)</span>
-independent variable <span class="math inline">\(X_i \in
-\mathbb{R}^p\)</span>, <span class="math inline">\(p \geq
-2\)</span>.</p>
+<p>This blog post will explore fitting a regression model with constraints on the parameters.</p>
+<p>Let's start with the basics of multiple regression, where we have a dependent variable <span class="math inline">\(Y_i \in \mathbb{R}\)</span> and <span class="math inline">\(p\)</span> independent variable <span class="math inline">\(X_i \in \mathbb{R}^p\)</span>, <span class="math inline">\(p \geq 2\)</span>.</p>
 <p>The multiple regression model is given by:</p>
 <p><span class="math display">\[
 Y_i=\boldsymbol \alpha + \boldsymbol{\beta}^T X_i +\epsilon_i
 \]</span></p>
-<p>where <span class="math inline">\(E(\epsilon_i)=0\)</span>, <span
-class="math inline">\(Var(\epsilon_i)=\sigma^2\)</span>. After centering
-the data, we can express the linear regression model using matrix
-notation:</p>
+<p>where <span class="math inline">\(E(\epsilon_i)=0\)</span>, <span class="math inline">\(Var(\epsilon_i)=\sigma^2\)</span>. After centering the data, we can express the linear regression model using matrix notation:</p>
 <p><span class="math display">\[
 \mathbf{Y}  =\mathbf{X} \boldsymbol{\beta}+\boldsymbol{\varepsilon}
 \]</span></p>
-<p>where <span
-class="math inline">\(\mathbf{Y}=\left(\begin{array}{c}Y_{1} \\\ldots
-\\Y_{n}\end{array}\right) \in \mathbb{R}^{n \times 1}\)</span> , <span
-class="math inline">\(\mathbf{X}=\left(\begin{array}{c}X_{1}\\\vdots\\X_{n}\end{array}\right)
-\in \mathbb{R}^{n \times p}\)</span>, <span class="math inline">\(\beta
-\in \mathbb{R}^{p\times1}\)</span>, and <span
-class="math inline">\(\boldsymbol{\varepsilon}=\left(\begin{array}{c}\epsilon_{1}\\\ldots\\\epsilon_{n}\end{array}\right)\in\mathbb{R}^{n\times1}\)</span>.</p>
-<p>This post aims to discuss how to fit a regression model when there
-are constraints on the parameter vector <span
-class="math inline">\(\boldsymbol{\beta}\)</span>.</p>
+<p>where <span class="math inline">\(\mathbf{Y}=\left(\begin{array}{c}Y_{1} \\\ldots \\Y_{n}\end{array}\right) \in \mathbb{R}^{n \times 1}\)</span> , <span class="math inline">\(\mathbf{X}=\left(\begin{array}{c}X_{1}\\\vdots\\X_{n}\end{array}\right) \in \mathbb{R}^{n \times p}\)</span>, <span class="math inline">\(\beta \in \mathbb{R}^{p\times1}\)</span>, and <span class="math inline">\(\boldsymbol{\varepsilon}=\left(\begin{array}{c}\epsilon_{1}\\\ldots\\\epsilon_{n}\end{array}\right)\in\mathbb{R}^{n\times1}\)</span>.</p>
+<p>This post aims to discuss how to fit a regression model when there are constraints on the parameter vector <span class="math inline">\(\boldsymbol{\beta}\)</span>.</p>
 <h1 id="constrained-least-square">2 Constrained Least Square</h1>
-<p>To begin, let's distinguish this topic from constrained least
-squares.</p>
-<p>In constrained least squares, the goal is to solve a linear least
-squares problem while adding an extra constraint to the solution:</p>
+<p>To begin, let's distinguish this topic from constrained least squares.</p>
+<p>In constrained least squares, the goal is to solve a linear least squares problem while adding an extra constraint to the solution:</p>
 <p><span class="math display">\[
-\begin{array}{ll}\text { min } &amp; \|\mathbf{Y}-\mathbf{X}
-\boldsymbol{\beta}\|^2 \\ \text { subject to } &amp; \mathbf{C}
-\mathbf{X}=d\end{array}
+\begin{array}{ll}\text { min } &amp; \|\mathbf{Y}-\mathbf{X} \boldsymbol{\beta}\|^2 \\ \text { subject to } &amp; \mathbf{C} \mathbf{X}=d\end{array}
 \]</span></p>
 <h1 id="restricted-least-square">3 Restricted Least Square</h1>
-<p>Now, let's focus on fitting a regression model with parameter
-restrictions. We want to impose <span
-class="math inline">\(M&lt;k+1\)</span> different linear
-<strong>restrictions on the parameters</strong>:</p>
+<p>Now, let's focus on fitting a regression model with parameter restrictions. We want to impose <span class="math inline">\(M&lt;k+1\)</span> different linear <strong>restrictions on the parameters</strong>:</p>
 <p><span class="math display">\[
-\begin{array}{ll}\text { min } &amp; \|\mathbf{Y}-\mathbf{X}
-\boldsymbol{\beta}\|^2 \\ \text { subject to }&amp; \mathbf{L}
-\boldsymbol{\beta} =\boldsymbol{r}\end{array}
+\begin{array}{ll}\text { min } &amp; \|\mathbf{Y}-\mathbf{X} \boldsymbol{\beta}\|^2 \\ \text { subject to }&amp; \mathbf{L} \boldsymbol{\beta} =\boldsymbol{r}\end{array}
 \]</span></p>
-<p>where <span class="math inline">\(\boldsymbol{\beta}\)</span> is the
-parameter of interest, <span class="math inline">\(\mathbf{L} \in
-\mathbb{R}^{M\times k}\)</span> and <span
-class="math inline">\(\boldsymbol{r} \in \mathbb{R}^{M\times
-1}\)</span>.</p>
-<p>Applying the Lagrange multipliers, we need to minimize the Lagrangian
-function</p>
+<p>where <span class="math inline">\(\boldsymbol{\beta}\)</span> is the parameter of interest, <span class="math inline">\(\mathbf{L} \in \mathbb{R}^{M\times k}\)</span> and <span class="math inline">\(\boldsymbol{r} \in \mathbb{R}^{M\times 1}\)</span>.</p>
+<p>Applying the Lagrange multipliers, we need to minimize the Lagrangian function</p>
 <p><span class="math display">\[
-\begin{aligned}L(\boldsymbol{\beta}, \boldsymbol{\lambda}) &amp;
-=(\mathbf{Y}-\mathbf{X} \boldsymbol{\beta})^{\top}(\mathbf{Y}-\mathbf{X}
-\boldsymbol{\beta})+2 \boldsymbol{\lambda}^{\top}(\mathbf{L}
-\boldsymbol{\beta}-\boldsymbol{r}) \\&amp; =\mathbf{Y}^{\top}
-\mathbf{Y}-2 \mathbf{Y}^{\top} \mathbf{X}
-\boldsymbol{\beta}+\boldsymbol{\beta}^{\top} \mathbf{X}^{\top}
-\mathbf{X} \boldsymbol{\beta}+2 \boldsymbol{\lambda}^{\top} \mathbf{L}
-\boldsymbol{\beta}-2 \boldsymbol{\lambda}^{\top}
-\boldsymbol{r}\end{aligned}
+\begin{aligned}L(\boldsymbol{\beta}, \boldsymbol{\lambda}) &amp; =(\mathbf{Y}-\mathbf{X} \boldsymbol{\beta})^{\top}(\mathbf{Y}-\mathbf{X} \boldsymbol{\beta})+2 \boldsymbol{\lambda}^{\top}(\mathbf{L} \boldsymbol{\beta}-\boldsymbol{r}) \\&amp; =\mathbf{Y}^{\top} \mathbf{Y}-2 \mathbf{Y}^{\top} \mathbf{X} \boldsymbol{\beta}+\boldsymbol{\beta}^{\top} \mathbf{X}^{\top} \mathbf{X} \boldsymbol{\beta}+2 \boldsymbol{\lambda}^{\top} \mathbf{L} \boldsymbol{\beta}-2 \boldsymbol{\lambda}^{\top} \boldsymbol{r}\end{aligned}
 \]</span></p>
 <p>We then equate the partial derivatives to zero:</p>
 <p><span class="math display">\[
-\left\{ \begin{align}\frac{\partial
-L(\boldsymbol{\beta},\boldsymbol{\lambda})}{\partial\boldsymbol{\beta}}&amp;=-2\mathbf{X}^{\top}\mathbf{Y}+2\mathbf{X}^{\top}\mathbf{X}\boldsymbol{\beta}+2\boldsymbol{\lambda}^{\top}\mathbf{L}=0
-\\\frac{\partial
-L(\boldsymbol{\beta},\boldsymbol{\lambda})}{\partial\boldsymbol{\lambda}}&amp;=2\mathbf{L}\boldsymbol{\beta}-2\boldsymbol{r}=0\end{align}\right.
+\left\{ \begin{align}\frac{\partial L(\boldsymbol{\beta},\boldsymbol{\lambda})}{\partial\boldsymbol{\beta}}&amp;=-2\mathbf{X}^{\top}\mathbf{Y}+2\mathbf{X}^{\top}\mathbf{X}\boldsymbol{\beta}+2\boldsymbol{\lambda}^{\top}\mathbf{L}=0
+\\\frac{\partial L(\boldsymbol{\beta},\boldsymbol{\lambda})}{\partial\boldsymbol{\lambda}}&amp;=2\mathbf{L}\boldsymbol{\beta}-2\boldsymbol{r}=0\end{align}\right.
 \]</span></p>
 <p>From the first equation, we find:</p>
 <p><span class="math display">\[
-\begin{aligned}\widehat{\boldsymbol{\beta}}^{(R L S)} &amp;
-=\left(\mathbf{X}^{\top} \mathbf{X}\right)^{-1} \mathbf{X}^{\top}
-\mathbf{Y}-\left(\mathbf{X}^{\top} \mathbf{X}\right)^{-1}
-\mathbf{L}^{\top} \boldsymbol{\lambda} \\&amp;
-=\widehat{\boldsymbol{\beta}}^{(O L S)}-\left(\mathbf{X}^{\top}
-\mathbf{X}\right)^{-1} \mathbf{L}^{\top}
-\boldsymbol{\lambda}\end{aligned}
+\begin{aligned}\widehat{\boldsymbol{\beta}}^{(R L S)} &amp; =\left(\mathbf{X}^{\top} \mathbf{X}\right)^{-1} \mathbf{X}^{\top} \mathbf{Y}-\left(\mathbf{X}^{\top} \mathbf{X}\right)^{-1} \mathbf{L}^{\top} \boldsymbol{\lambda} \\&amp; =\widehat{\boldsymbol{\beta}}^{(O L S)}-\left(\mathbf{X}^{\top} \mathbf{X}\right)^{-1} \mathbf{L}^{\top} \boldsymbol{\lambda}\end{aligned}
 \]</span></p>
-<p>Now, by multiplying both sides by <span
-class="math inline">\(\mathbf{L}\)</span>, we get:</p>
+<p>Now, by multiplying both sides by <span class="math inline">\(\mathbf{L}\)</span>, we get:</p>
 <p><span class="math display">\[
-\mathbf{L} \widehat{\boldsymbol{\beta}}^{(R L S)}=\mathbf{L}
-\widehat{\boldsymbol{\beta}}^{(O L S)}-\mathbf{L}\left(\mathbf{X}^{\top}
-\mathbf{X}\right)^{-1} \mathbf{L}^{\top} \boldsymbol{\lambda}
+\mathbf{L} \widehat{\boldsymbol{\beta}}^{(R L S)}=\mathbf{L} \widehat{\boldsymbol{\beta}}^{(O L S)}-\mathbf{L}\left(\mathbf{X}^{\top} \mathbf{X}\right)^{-1} \mathbf{L}^{\top} \boldsymbol{\lambda}
 \]</span></p>
-<p>Since <span class="math inline">\(\mathbf{L} \boldsymbol{\beta}
-=\boldsymbol{r}\)</span>, we can express <span
-class="math inline">\(\boldsymbol{\lambda}\)</span> as:</p>
+<p>Since <span class="math inline">\(\mathbf{L} \boldsymbol{\beta} =\boldsymbol{r}\)</span>, we can express <span class="math inline">\(\boldsymbol{\lambda}\)</span> as:</p>
 <p><span class="math display">\[
-\boldsymbol{\lambda}=\left(\mathbf{L}\left(\mathbf{X}^{\top}
-\mathbf{X}\right)^{-1} \mathbf{L}^{\top}\right)^{-1}\left(\mathbf{L}
-\widehat{\boldsymbol{\beta}}^{(O L S)}-\boldsymbol{r}\right)
+\boldsymbol{\lambda}=\left(\mathbf{L}\left(\mathbf{X}^{\top} \mathbf{X}\right)^{-1} \mathbf{L}^{\top}\right)^{-1}\left(\mathbf{L} \widehat{\boldsymbol{\beta}}^{(O L S)}-\boldsymbol{r}\right)
 \]</span></p>
-<p>Substituting this into the initial expression for <span
-class="math inline">\(\widehat{\boldsymbol{\beta}}^{(R L S)}\)</span>
-gives us:</p>
+<p>Substituting this into the initial expression for <span class="math inline">\(\widehat{\boldsymbol{\beta}}^{(R L S)}\)</span> gives us:</p>
 <p><span class="math display">\[
-\widehat{\boldsymbol{\beta}}^{(R L S)}=\widehat{\boldsymbol{\beta}}^{(O
-L S)}-\left(\mathbf{X}^{\top} \mathbf{X}\right)^{-1}
-\mathbf{L}^{\top}\left(\mathbf{L}\left(\mathbf{X}^{\top}
-\mathbf{X}\right)^{-1} \mathbf{L}^{\top}\right)^{-1}\left(\mathbf{L}
-\widehat{\boldsymbol{\beta}}^{(O L S)}-\boldsymbol{r}\right)
+\widehat{\boldsymbol{\beta}}^{(R L S)}=\widehat{\boldsymbol{\beta}}^{(O L S)}-\left(\mathbf{X}^{\top} \mathbf{X}\right)^{-1} \mathbf{L}^{\top}\left(\mathbf{L}\left(\mathbf{X}^{\top} \mathbf{X}\right)^{-1} \mathbf{L}^{\top}\right)^{-1}\left(\mathbf{L} \widehat{\boldsymbol{\beta}}^{(O L S)}-\boldsymbol{r}\right)
 \]</span></p>
 <h1 id="reference">4 Reference</h1>
-<p><a
-target="_blank" rel="noopener" href="http://sfb649.wiwi.hu-berlin.de/fedc_homepage/xplore/tutorials/xegbohtmlnode18.html#varbeta_rls">http://sfb649.wiwi.hu-berlin.de/fedc_homepage/xplore/tutorials/xegbohtmlnode18.html#varbeta_rls</a></p>
-<p><a
-target="_blank" rel="noopener" href="http://web.vu.lt/mif/a.buteikis/wp-content/uploads/PE_Book/4-4-Multiple-RLS.html">http://web.vu.lt/mif/a.buteikis/wp-content/uploads/PE_Book/4-4-Multiple-RLS.html</a></p>
-<p><a
-target="_blank" rel="noopener" href="http://home.iitk.ac.in/~shalab/econometrics/Chapter6-Econometrics-RegressionAnalysisUnderLinearRestrictions.pdf">http://home.iitk.ac.in/~shalab/econometrics/Chapter6-Econometrics-RegressionAnalysisUnderLinearRestrictions.pdf</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Constrained_least_squares">https://en.wikipedia.org/wiki/Constrained_least_squares</a></p>
+<p><a target="_blank" rel="noopener" href="http://sfb649.wiwi.hu-berlin.de/fedc_homepage/xplore/tutorials/xegbohtmlnode18.html#varbeta_rls">http://sfb649.wiwi.hu-berlin.de/fedc_homepage/xplore/tutorials/xegbohtmlnode18.html#varbeta_rls</a></p>
+<p><a target="_blank" rel="noopener" href="http://web.vu.lt/mif/a.buteikis/wp-content/uploads/PE_Book/4-4-Multiple-RLS.html">http://web.vu.lt/mif/a.buteikis/wp-content/uploads/PE_Book/4-4-Multiple-RLS.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://home.iitk.ac.in/~shalab/econometrics/Chapter6-Econometrics-RegressionAnalysisUnderLinearRestrictions.pdf">http://home.iitk.ac.in/~shalab/econometrics/Chapter6-Econometrics-RegressionAnalysisUnderLinearRestrictions.pdf</a></p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Constrained_least_squares">https://en.wikipedia.org/wiki/Constrained_least_squares</a></p>
 
     </div>
 

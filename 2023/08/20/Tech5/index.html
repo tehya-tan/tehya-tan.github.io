@@ -26,11 +26,14 @@
 <meta property="og:site_name" content="Tehya&#39;s Blog">
 <meta property="og:description" content="​">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20082023/Untitled.png?raw=true">
+<meta property="og:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20082023/Untitled%201.png?raw=true">
 <meta property="article:published_time" content="2023-08-20T21:07:00.000Z">
 <meta property="article:modified_time" content="2023-08-20T22:19:14.234Z">
 <meta property="article:author" content="Tehya">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20082023/Untitled.png?raw=true">
 
 
 <link rel="canonical" href="http://example.com/2023/08/20/Tech5/">
@@ -126,10 +129,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-text">1 Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#connect-a-local-folder-to-a-github-repository"><span class="nav-text">2 Connect a Local
-Folder to a Github Repository</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ignore-folder-for-git-repositories"><span class="nav-text">3 Ignore Folder for Git
-Repositories</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#push-all-changes-except-the-ignored-folders"><span class="nav-text">4 Push all changes
-except the ignored folders</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">5 Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-text">1 Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#connect-a-local-folder-to-a-github-repository"><span class="nav-text">2 Connect a Local Folder to a Github Repository</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ignore-folder-for-git-repositories"><span class="nav-text">3 Ignore Folder for Git Repositories</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#push-all-changes-except-the-ignored-folders"><span class="nav-text">4 Push all changes except the ignored folders</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">5 Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -261,70 +261,44 @@ except the ignored folders</span></a></li><li class="nav-item nav-level-1"><a cl
     <div class="post-body" itemprop="articleBody"><p>​</p>
 <span id="more"></span>
 <h1 id="introduction">1 Introduction</h1>
-<p>This blog post introduce how to connect local files to GitHub and
-selectively sync specific folders, like your coding work, while
-excluding others (e.g., data folders). You can achieve this by using a
-<code>.gitignore</code> file to tell Git what to exclude when pushing
-changes to your GitHub repository.</p>
-<h1 id="connect-a-local-folder-to-a-github-repository">2 Connect a Local
-Folder to a Github <strong>Repository</strong></h1>
+<p>This blog post introduce how to connect local files to GitHub and selectively sync specific folders, like your coding work, while excluding others (e.g., data folders). You can achieve this by using a <code>.gitignore</code> file to tell Git what to exclude when pushing changes to your GitHub repository.</p>
+<h1 id="connect-a-local-folder-to-a-github-repository">2 Connect a Local Folder to a Github <strong>Repository</strong></h1>
 <ol type="1">
 <li><p>Create a repository on Github</p>
-<p><img
-src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20082023/Untitled.png?raw=true" /></p>
+<p><img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20082023/Untitled.png?raw=true" /></p>
 <ul>
-<li>GitHub provides instructions to help you set up your
-repository.</li>
+<li>GitHub provides instructions to help you set up your repository.</li>
 </ul>
-<p><img
-src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20082023/Untitled%201.png?raw=true" /></p></li>
-<li><p>Open terminal in the working folder and run commands as
-instructed</p>
+<p><img src="https://github.com/tehya-tan/MarkdownImages/blob/master/Images%20082023/Untitled%201.png?raw=true" /></p></li>
+<li><p>Open terminal in the working folder and run commands as instructed</p>
 <p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# Repository&quot;</span> &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https://github.com/tehya-tan/Repository.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure></p></li>
 </ol>
 <ul>
-<li>Now, this folder is connected to the Git repository on the
-account.</li>
+<li>Now, this folder is connected to the Git repository on the account.</li>
 </ul>
-<h1 id="ignore-folder-for-git-repositories">3 Ignore Folder for Git
-<strong>Repositories</strong></h1>
+<h1 id="ignore-folder-for-git-repositories">3 Ignore Folder for Git <strong>Repositories</strong></h1>
 <ol type="1">
-<li><p>Create or open the <code>.gitignore</code> file: If you don't
-already have a <code>.gitignore</code> file in your project's root
-directory, create one. You can use any text editor or run the following
-command to create this file.</p>
+<li><p>Create or open the <code>.gitignore</code> file: If you don't already have a <code>.gitignore</code> file in your project's root directory, create one. You can use any text editor or run the following command to create this file.</p>
 <p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> .gitignore</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Add folder names to <code>.gitignore</code> and save: Open the
-<code>.gitignore</code> file and add the names of the folders you want
-to ignore, each on a separate line.</p>
-<p>For example, if you want to ignore two folders named
-<code>folder1</code> and <code>folder2</code>, add the following lines
-to <code>.gitignore</code>:</p>
+<li><p>Add folder names to <code>.gitignore</code> and save: Open the <code>.gitignore</code> file and add the names of the folders you want to ignore, each on a separate line.</p>
+<p>For example, if you want to ignore two folders named <code>folder1</code> and <code>folder2</code>, add the following lines to <code>.gitignore</code>:</p>
 <p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">folder1/</span><br><span class="line">folder2/</span><br></pre></td></tr></table></figure></p>
-<p>You can continue adding more folder names, each on a new
-line.</p></li>
+<p>You can continue adding more folder names, each on a new line.</p></li>
 <li><p>Commit the <code>.gitignore</code> file:</p>
 <p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .gitignore</span><br><span class="line">git commit -m <span class="string">&quot;Added folders to .gitignore&quot;</span></span><br></pre></td></tr></table></figure></p>
-<p>Note: The <code>.gitignore</code> file itself needs to be committed
-to make the ignore rules effective.</p></li>
+<p>Note: The <code>.gitignore</code> file itself needs to be committed to make the ignore rules effective.</p></li>
 </ol>
-<h1 id="push-all-changes-except-the-ignored-folders">4 Push all changes
-except the ignored folders</h1>
+<h1 id="push-all-changes-except-the-ignored-folders">4 Push all changes except the ignored folders</h1>
 <ol type="1">
-<li>Enter <code>git add --all</code> to add all the files or changes to
-the repository.</li>
-<li>Enter <code>git status</code> to see the changes to be
-committed.</li>
-<li>Enter <code>git commit -m '&lt;commit_message&gt;'</code> at the
-command line to commit new files/changes to the local repository.</li>
+<li>Enter <code>git add --all</code> to add all the files or changes to the repository.</li>
+<li>Enter <code>git status</code> to see the changes to be committed.</li>
+<li>Enter <code>git commit -m '&lt;commit_message&gt;'</code> at the command line to commit new files/changes to the local repository.</li>
 <li>Use <code>git push</code> to publish your local commits</li>
 </ol>
-<p>We also can push changes only on specific <strong>folder</strong> and
-files by replacing the step 1 by</p>
+<p>We also can push changes only on specific <strong>folder</strong> and files by replacing the step 1 by</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add folder</span><br></pre></td></tr></table></figure>
 <h1 id="reference">5 Reference</h1>
-<p><a
-target="_blank" rel="noopener" href="https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github">https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github">https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github</a></p>
 
     </div>
 

@@ -126,10 +126,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-text">1 Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-problem-with-list.copy"><span class="nav-text">2 The Problem with
-list.copy()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-solution-using-deepcopy-for-nested-lists"><span class="nav-text">3 The Solution:
-Using deepcopy for Nested Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#create-independent-copy-of-lists"><span class="nav-text">4 Create Independent Copy of
-Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">5 Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-text">1 Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-problem-with-list.copy"><span class="nav-text">2 The Problem with list.copy()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-solution-using-deepcopy-for-nested-lists"><span class="nav-text">3 The Solution: Using deepcopy for Nested Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#create-independent-copy-of-lists"><span class="nav-text">4 Create Independent Copy of Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">5 Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -267,73 +264,35 @@ Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="
     <div class="post-body" itemprop="articleBody"><p>​</p>
 <span id="more"></span>
 <h1 id="introduction">1 Introduction</h1>
-<p>In this blog post, I want to share my experience of how to create an
-independent copy of a Python list. Python provides various methods for
-copying lists, but not all of them create independent copies, especially
-when dealing with nested lists.</p>
-<p>I will demonstrate the issues with <code>list.copy()</code> and the
-slice assignment <code>[:]</code>, and then present a solution using the
-<code>deepcopy</code> function from the <a
-target="_blank" rel="noopener" href="https://docs.python.org/3/library/copy.html">copy</a> module.</p>
-<h1 id="the-problem-with-list.copy">2 The Problem with
-<code>list.copy()</code></h1>
-<p>In Python, we must be cautious when using the assignment operator
-<code>=</code> to copy lists, as it creates a reference to the original
-list rather than an independent copy. This means that any modifications
-made to the copied list will affect the original list, and vice
-versa.</p>
-<p>Let's examine an example using <code>list.copy()</code> and see its
-limitations:</p>
+<p>In this blog post, I want to share my experience of how to create an independent copy of a Python list. Python provides various methods for copying lists, but not all of them create independent copies, especially when dealing with nested lists.</p>
+<p>I will demonstrate the issues with <code>list.copy()</code> and the slice assignment <code>[:]</code>, and then present a solution using the <code>deepcopy</code> function from the <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/copy.html">copy</a> module.</p>
+<h1 id="the-problem-with-list.copy">2 The Problem with <code>list.copy()</code></h1>
+<p>In Python, we must be cautious when using the assignment operator <code>=</code> to copy lists, as it creates a reference to the original list rather than an independent copy. This means that any modifications made to the copied list will affect the original list, and vice versa.</p>
+<p>Let's examine an example using <code>list.copy()</code> and see its limitations:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">A1 = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="built_in">print</span>(A1)</span><br><span class="line"><span class="comment">#[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br><span class="line"></span><br><span class="line">B1 = A1.copy()</span><br><span class="line"><span class="comment"># same as B1 = A1[:]</span></span><br><span class="line">B[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(B1)</span><br><span class="line"><span class="comment"># [[3, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(A1)</span><br><span class="line"><span class="comment"># [[3, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br></pre></td></tr></table></figure>
-<p>As you can see, <code>A1</code> changes as <code>B1</code> changes.
-The same issue arises when using slice assignment <code>[:]</code>.</p>
-<p>However, if you are working on another list <code>A2</code>,
-<code>list.copy()</code> works.</p>
+<p>As you can see, <code>A1</code> changes as <code>B1</code> changes. The same issue arises when using slice assignment <code>[:]</code>.</p>
+<p>However, if you are working on another list <code>A2</code>, <code>list.copy()</code> works.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">B2 = A2.copy()</span><br><span class="line">B2[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line"><span class="built_in">print</span>(B2)</span><br><span class="line"><span class="comment">#[3, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(A2)</span><br><span class="line"><span class="comment">#[1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-<p>Why? The answer is that <code>list.copy()</code> and
-<code>newlist = oldlist[:]</code> fail to produce independent copies of
-<strong>nested</strong> lists because they create shallow copies,
-preserving references to the original inner lists.</p>
+<p>Why? The answer is that <code>list.copy()</code> and <code>newlist = oldlist[:]</code> fail to produce independent copies of <strong>nested</strong> lists because they create shallow copies, preserving references to the original inner lists.</p>
 <p>Then how can we copy it?</p>
-<h1 id="the-solution-using-deepcopy-for-nested-lists">3 The Solution:
-Using <code>deepcopy</code> for Nested Lists</h1>
-<p>Python provides a useful function called <code>deepcopy</code> within
-the <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/copy.html">copy</a>
-module.</p>
-<p>The <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/copy.html">copy</a>
-module's documentation distinguishes between two copy techniques: the
-<em>deep copy</em> and the <em>shallow copy</em>.</p>
+<h1 id="the-solution-using-deepcopy-for-nested-lists">3 The Solution: Using <code>deepcopy</code> for Nested Lists</h1>
+<p>Python provides a useful function called <code>deepcopy</code> within the <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/copy.html">copy</a> module.</p>
+<p>The <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/copy.html">copy</a> module's documentation distinguishes between two copy techniques: the <em>deep copy</em> and the <em>shallow copy</em>.</p>
 <blockquote>
-<p>The difference between shallow and deep copying is only relevant for
-compound objects (objects that contain other objects, like lists or
-class instances):</p>
+<p>The difference between shallow and deep copying is only relevant for compound objects (objects that contain other objects, like lists or class instances):</p>
 <ul>
-<li>A <em>shallow copy</em> constructs a new compound object and then
-(to the extent possible) inserts <em>references</em> into it to the
-objects found in the original.</li>
-<li>A <em>deep copy</em> constructs a new compound object and then,
-recursively, inserts <em>copies</em> into it of the objects found in the
-original.</li>
+<li>A <em>shallow copy</em> constructs a new compound object and then (to the extent possible) inserts <em>references</em> into it to the objects found in the original.</li>
+<li>A <em>deep copy</em> constructs a new compound object and then, recursively, inserts <em>copies</em> into it of the objects found in the original.</li>
 </ul>
 </blockquote>
-<p>Back to the examples, the <code>A1</code> list is a compound object,
-whereas the <code>A2</code> list is not.</p>
-<p>For an independent copy of the <code>A1</code> list, a deep copy is
-required, whereas for the <code>A2</code> list, a shallow copy
-suffices.</p>
-<p>The commands <code>list.copy()</code> or
-<code>newlist = oldlist[:]</code> can be used to perform a shallow
-copy.</p>
+<p>Back to the examples, the <code>A1</code> list is a compound object, whereas the <code>A2</code> list is not.</p>
+<p>For an independent copy of the <code>A1</code> list, a deep copy is required, whereas for the <code>A2</code> list, a shallow copy suffices.</p>
+<p>The commands <code>list.copy()</code> or <code>newlist = oldlist[:]</code> can be used to perform a shallow copy.</p>
 <p>So the solution of the example is</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">A1 = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="built_in">print</span>(A1)</span><br><span class="line"><span class="comment"># [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br><span class="line"></span><br><span class="line">B1 = copy.deepcopy(A1)</span><br><span class="line">B1[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line"><span class="built_in">print</span>(B1)</span><br><span class="line"><span class="comment"># [[3, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br><span class="line"><span class="built_in">print</span>(A1)</span><br><span class="line"><span class="comment"># [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br></pre></td></tr></table></figure>
-<p>Now, with <code>deepcopy</code>, <code>B1</code> is a completely
-independent copy of <code>A1</code>, and any changes made to
-<code>B1</code> will not affect <code>A1</code>.</p>
-<h1 id="create-independent-copy-of-lists">4 Create Independent Copy of
-Lists</h1>
-<p>In summary, when dealing with nested lists, use <code>deepcopy</code>
-to create independent copies. For non-nested lists, you can safely use
-shallow copy methods.</p>
+<p>Now, with <code>deepcopy</code>, <code>B1</code> is a completely independent copy of <code>A1</code>, and any changes made to <code>B1</code> will not affect <code>A1</code>.</p>
+<h1 id="create-independent-copy-of-lists">4 Create Independent Copy of Lists</h1>
+<p>In summary, when dealing with nested lists, use <code>deepcopy</code> to create independent copies. For non-nested lists, you can safely use shallow copy methods.</p>
 <p><strong>Deep copy:</strong></p>
 <ul>
 <li><code>B = copy.deepcopy(A)</code></li>
@@ -345,10 +304,8 @@ shallow copy methods.</p>
 <li><code>B = copy.copy(A)</code></li>
 </ul>
 <h1 id="reference">5 Reference</h1>
-<p><a
-target="_blank" rel="noopener" href="https://stackoverflow.com/questions/2612802/how-do-i-clone-a-list-so-that-it-doesnt-change-unexpectedly-after-assignment">https://stackoverflow.com/questions/2612802/how-do-i-clone-a-list-so-that-it-doesnt-change-unexpectedly-after-assignment</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://docs.python.org/3/library/copy.html">https://docs.python.org/3/library/copy.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/2612802/how-do-i-clone-a-list-so-that-it-doesnt-change-unexpectedly-after-assignment">https://stackoverflow.com/questions/2612802/how-do-i-clone-a-list-so-that-it-doesnt-change-unexpectedly-after-assignment</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/copy.html">https://docs.python.org/3/library/copy.html</a></p>
 
     </div>
 
