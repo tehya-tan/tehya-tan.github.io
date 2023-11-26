@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="​">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Understanding Bootstrap Aggregation (Bagging) in Machine Learning">
+<meta property="og:url" content="http://example.com/2023/11/26/ML1/index.html">
+<meta property="og:site_name" content="Tehya&#39;s Blog">
+<meta property="og:description" content="​">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-26T15:55:00.000Z">
+<meta property="article:modified_time" content="2023-11-26T15:57:15.667Z">
+<meta property="article:author" content="Tehya">
+<meta property="article:tag" content="Theory">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/11/26/ML1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/11/26/ML1/","path":"2023/11/26/ML1/","title":"Understanding Bootstrap Aggregation (Bagging) in Machine Learning"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Understanding Bootstrap Aggregation (Bagging) in Machine Learning | Tehya's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-float {
+  bottom: 88px;
+  cursor: pointer;
+  left: -8px;
+  position: fixed;
+  z-index: 9999;
+}
+#needsharebutton-float .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 4px;
+  padding: 0 10px 0 14px;
+}
+</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Tehya's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing as Self-Care</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-text">1 Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#objective"><span class="nav-text">2 Objective</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#examples"><span class="nav-text">3 Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#regression-problem"><span class="nav-text">3.1 Regression problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-classification"><span class="nav-text">3.2 K-classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging-will-often-decrease-mean-squared-error"><span class="nav-text">4.1 Bagging will often decrease mean-squared error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#baggings-effectiveness-with-high-variance-low-bias-models"><span class="nav-text">4.2 Bagging&#39;s Effectiveness with High-Variance, Low-Bias Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging-effect-caution-with-poor-classifiers"><span class="nav-text">4.3 Bagging effect: Caution with Poor Classifiers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#simple-example"><span class="nav-text">4.3.1 Simple Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#why-bagged-trees-fall-short-as-a-consensus-of-independent-weak-learners"><span class="nav-text">4.3.2 Why Bagged Trees Fall Short as a Consensus of Independent Weak Learners?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#illustration-of-combining-weak-learners"><span class="nav-text">4.3.3 Illustration of Combining Weak Learners</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#baggings-impact-on-model-structure"><span class="nav-text">4.4 Bagging&#39;s Impact on Model Structure</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">5 Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Tehya</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:tehyatan23@gmail.com" title="E-Mail → mailto:tehyatan23@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://tehya.substack.com/" title="Newsletter → https:&#x2F;&#x2F;tehya.substack.com" rel="noopener me" target="_blank"><i class="fa fa-envelope-open-text fa-fw"></i>Newsletter</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/26/ML1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Tehya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tehya's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Understanding Bootstrap Aggregation (Bagging) in Machine Learning | Tehya's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Understanding Bootstrap Aggregation (Bagging) in Machine Learning
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-11-26 10:55:00 / Modified: 10:57:15" itemprop="dateCreated datePublished" datetime="2023-11-26T10:55:00-05:00">2023-11-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Theory/" itemprop="url" rel="index"><span itemprop="name">Theory</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/11/26/ML1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/11/26/ML1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>​</p>
+<span id="more"></span>
+<h1 id="introduction">1 Introduction</h1>
+<p>Bagging, short for Bootstrap Aggregation, is a powerful ensemble learning method that minimizes prediction variability by averaging across a set of bootstrap samples.</p>
+<p>This technique proves highly effective in situations where models are inclined toward high variance or overfitting.</p>
+<h1 id="objective">2 Objective</h1>
+<ul>
+<li><strong>Variance Reduction Through Averaging:</strong> Bagging strategically averages predictions over bootstrap samples, effectively curbing variance.</li>
+<li><strong>Leveraging Statistical Connections:</strong> Beyond simple averaging, bagging uncovers a strong connection between the bootstrap mean and a posterior average, enhancing its nuanced and effective approach.</li>
+</ul>
+<h1 id="examples">3 Examples</h1>
+<h2 id="regression-problem">3.1 Regression problem</h2>
+<ul>
+<li><p>Training data <span class="math inline">\(\mathbf{Z}=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \ldots,\left(x_{N}, y_{N}\right)\right\}\)</span></p></li>
+<li><p>Fitting the data and obtaining the prediction<span class="math inline">\(\hat{f}(x)\)</span> at input <span class="math inline">\(x\)</span></p></li>
+<li><p>For each bootstrap sample <span class="math inline">\(\mathbf{Z}^{* b}, b=1,2, \ldots, B\)</span>, we ﬁt our model, giving prediction <span class="math inline">\(\hat{f}^{* b}(x)\)</span>.</p>
+<ul>
+<li><span class="math inline">\(\mathbf{Z}^{*}=\left\{\left(x_{1}^{*}, y_{1}^{*}\right),\left(x_{2}^{*}, y_{2}^{*}\right), \ldots,\left(x_{N}^{*}, y_{N}^{*}\right)\right\}\)</span></li>
+<li><span class="math inline">\(\left(x_i^*, y_i^*\right) \sim \hat{\mathcal{P}}\)</span> where <span class="math inline">\(\hat{\mathcal{P}}\)</span> is the empirical distribution putting equal probability <span class="math inline">\(1/N\)</span> on each of the data points <span class="math inline">\((x_i, y_i)\)</span>.</li>
+</ul></li>
+<li><p>The bagging estimate is <span class="math display">\[
+\hat{f}_{\mathrm{bag}}(x)=\frac{1}{B} \sum_{b=1}^{B} \hat{f}^{* b}(x)
+\]</span></p></li>
+<li><p><span class="math inline">\(\hat{f}_{\mathrm{bag}}(x)\)</span> is a Monte Carlo estimate of the true bagging estimate <span class="math inline">\(\mathrm{E}_{\hat{\mathcal{P}}} \hat{f}^{*}(x)\)</span></p></li>
+<li><p>The bagged estimate will differ from the original estimate <span class="math inline">\(\hat{f}(x)\)</span> only when the latter is a <strong>nonlinear</strong> or adaptive function of the data.</p>
+<ul>
+<li>For example, B-spline smoother is linear in the data if we ﬁx the inputs; hence if we sample using the parametric bootstrap, it gives <span class="math display">\[ \hat{f}_{\mathrm{bag}}(x) \rightarrow \hat{f}(x) \text { as } B \rightarrow \infty \]</span></li>
+</ul></li>
+<li><p>For Regression tree, <span class="math inline">\(\hat{f}(x)\)</span> represents the tree's prediction at input vector <span class="math inline">\(x\)</span>. The bagged estimate is the average prediction at <span class="math inline">\(x\)</span> from these <span class="math inline">\(B\)</span> tree</p></li>
+</ul>
+<h2 id="k-classification">3.2 K-classification</h2>
+<p>Consider <span class="math inline">\(\hat{f}(x)\)</span>, an indicator-vector function, with value a single one and <span class="math inline">\(K-1\)</span> zeroes. The classifier is <span class="math display">\[
+\hat{G}(x)=\arg \max _k \hat{f}(x)
+\]</span> Then the bagged estimate <span class="math inline">\(\hat{f}_{\mathrm{bag}}(x)\)</span> is a <span class="math inline">\(K\)</span>-vector <span class="math inline">\(\left[p_1(x), p_2(x), \ldots\right.\left.p_K(x)\right]\)</span> , with <span class="math inline">\(p_k(x)\)</span> equal to the proportion of trees predicting class <span class="math inline">\(k\)</span> at <span class="math inline">\(x\)</span>. The bagged classifier selects the class with the most "votes" from the <span class="math inline">\(B\)</span> trees <span class="math display">\[
+ \hat{G}_{\mathrm{bag}}(x)=\arg \max _k \hat{f}_{\mathrm{bag}}(x)=\arg \max _k \frac{1}{B} \sum_{b=1}^{B} \hat{f}^{* b}(x)
+\]</span> # 4 Properties</p>
+<h2 id="bagging-will-often-decrease-mean-squared-error">4.1 Bagging will often decrease mean-squared error</h2>
+<ul>
+<li>Consider the optimal bagging estimator, <span class="math inline">\(f_{\mathrm{ag}}(x) = \mathrm{E}_{\mathcal{P}} \hat{f}^*(x)\)</span>, where bootstrap samples are drawn from the actual population <span class="math inline">\(\mathcal{P}\)</span> rather than the dataset.</li>
+<li><span class="math inline">\(\hat{f}^{*}(x)\)</span> represents predictions derived from bootstrap samples drawn from <span class="math inline">\(\mathcal{P}\)</span>. <span class="math display">\[
+\begin{aligned}\mathrm{E}_{\mathcal{P}}\left[Y-\hat{f}^*(x)\right]^2 &amp; =\mathrm{E}_{\mathcal{P}}\left[Y-f_{\mathrm{ag}}(x)+f_{\mathrm{ag}}(x)-\hat{f}^*(x)\right]^2 \\&amp; =\mathrm{E}_{\mathcal{P}}\left[Y-f_{\mathrm{ag}}(x)\right]^2+\mathrm{E}_{\mathcal{P}}\left[\hat{f}^*(x)-f_{\mathrm{ag}}(x)\right]^2 \\&amp; \geq \mathrm{E}_{\mathcal{P}}\left[Y-f_{\mathrm{ag}}(x)\right]^2 .\end{aligned}
+\]</span></li>
+<li>The additional error on the right-hand side arises from the variance of <span class="math inline">\(\hat{f}^*(x)\)</span> around its mean <span class="math inline">\(f_{\mathrm{ag}}(x)\)</span>.</li>
+<li>Consequently, true population aggregation never increases mean squared error.</li>
+</ul>
+<h2 id="baggings-effectiveness-with-high-variance-low-bias-models">4.2 Bagging's Effectiveness with High-Variance, Low-Bias Models</h2>
+<p>Bagging demonstrates exceptional efficacy, particularly with high-variance, low-bias procedures, such as trees.</p>
+<ul>
+<li><strong>Regression:</strong> Repeatedly fit the same regression tree to bootstrapped versions of the training data and average the results.</li>
+<li><strong>Classification:</strong> Form a committee of trees where each tree contributes a vote for the predicted class.</li>
+</ul>
+<h2 id="bagging-effect-caution-with-poor-classifiers">4.3 Bagging effect: Caution with Poor Classifiers</h2>
+<p>Bagging excels in enhancing a good classifier but can exacerbate the performance of a bad one.</p>
+<h3 id="simple-example">4.3.1 Simple Example</h3>
+<p>Consider a scenario where <span class="math inline">\(Y=1\)</span> for all <span class="math inline">\(x\)</span>. If a classifier <span class="math inline">\(\hat{G}(x)\)</span> predicts <span class="math inline">\(Y=1\)</span> with a probability of 0.4 and <span class="math inline">\(Y=0\)</span> with a probability of 0.6 for all <span class="math inline">\(x\)</span>, the misclassification error of <span class="math inline">\(\hat{G}(x)\)</span> is 0.6. However, the bagged classifier's error is 1.0.</p>
+<p>Classes: <span class="math inline">\(k=0,1\)</span></p>
+<p><span class="math display">\[
+\begin{align*}
+\hat{G}_{\mathrm{bag}}(x) &amp; =\arg\max_{k}\frac{1}{B}\sum_{b=1}^{B}\hat{f}^{*b}(x)\\
+ &amp; =\arg\max_{k}\left(\begin{array}{c}\frac{1}{B}\sum_{b=1}^{B}I\left(G_{b}^{*}(x)=0\right)\\\frac{1}{B}\sum_{b=1}^{B}I\left(G_{b}^{*}(x)=1\right)\end{array}\right)\\
+ &amp; \rightarrow\arg\max_{k}\left(\begin{array}{c}0.6\\0.4\end{array}\right)\\
+ &amp; =0
+\end{align*}
+\]</span> - Misclassification error rate: <span class="math inline">\(e=0.6\)</span> - <span class="math inline">\(S_1(x)=\sum_{b=1}^B I\left(G_b^*(x)=1\right)\sim \operatorname{Bin}(B, 1-e)\)</span> - <span class="math inline">\(S_1(x) \rightarrow E(S_1(x))=B(1-e)=0.4 B &lt; B/2\)</span> - <span class="math inline">\(\operatorname{Pr}\left(S_1&lt;\right.{B} / 2) \rightarrow 1\)</span> as <span class="math inline">\(B\)</span> gets large.</p>
+<h3 id="why-bagged-trees-fall-short-as-a-consensus-of-independent-weak-learners">4.3.2 Why Bagged Trees Fall Short as a Consensus of Independent Weak Learners?</h3>
+<ul>
+<li>Bagged trees lack <strong>independence</strong>.</li>
+<li>The "Wisdom of Crowds" principle suggests that the collective knowledge of a <strong>diverse and independent</strong> group surpasses that of any individual. This concept is effectively harnessed through voting.</li>
+<li><strong>Random forests</strong> address this limitation by diminishing the correlation among sampled trees.</li>
+</ul>
+<h3 id="illustration-of-combining-weak-learners">4.3.3 Illustration of Combining Weak Learners</h3>
+<p>Consider a two-class example where the Bayes optimal decision at <span class="math inline">\(x\)</span> is <span class="math inline">\(G(x)=1\)</span>.</p>
+<ul>
+<li>Each weak learner <span class="math inline">\(G_b^*\)</span> has an error-rate <span class="math inline">\(e_b=e&lt;0.5\)</span>.</li>
+<li>Let <span class="math inline">\(S_1(x)=\sum_{b=1}^B I\left(G_b^*(x)=1\right)\)</span> represent the consensus vote for class 1.</li>
+<li>Assuming independence among weak learners, <span class="math inline">\(S_1(x) \sim \operatorname{Bin}(B, 1-e)\)</span>.</li>
+<li>As <span class="math inline">\(B\)</span> grows, <span class="math inline">\(\operatorname{Pr}\left(S_1&gt;\right.{B} / 2) \rightarrow 1\)</span>.
+<ul>
+<li>By the Law of Large Numbers,<span class="math display">\[
+  S_1(x) \rightarrow E(S_1(x))=B(1-e) &gt; B/2  
+\]</span></li>
+<li>since <span class="math inline">\(e &lt; 0.5\)</span>.</li>
+</ul></li>
+</ul>
+<h2 id="baggings-impact-on-model-structure">4.4 Bagging's Impact on Model Structure</h2>
+<ul>
+<li>Bagging can alter the simple structure of a model; for instance, a bagged tree ceases to resemble a tree.</li>
+<li>More stable procedures like nearest neighbors are typically less affected by bagging.</li>
+</ul>
+<h1 id="reference">5 Reference</h1>
+<p><a target="_blank" rel="noopener" href="https://www.stat.cmu.edu/~ryantibs/datamining/lectures/24-bag.pdf">https://www.stat.cmu.edu/~ryantibs/datamining/lectures/24-bag.pdf</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://tehya.substack.com/embed">
+            <span class="icon">
+              <i class="fa fa-envelope-open-text"></i>
+            </span>
+
+            <span class="label">Newsletter</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Theory/" rel="tag"># Theory</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/28/Tech7_debug1/" rel="prev" title="Fixing Hexo Blog Deployment 'Permission Denied' Error">
+                  <i class="fa fa-chevron-left"></i> Fixing Hexo Blog Deployment 'Permission Denied' Error
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Tehya</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-app-compat.js" integrity="sha256-FYa4Xn7MJlI18eIkwawbRKLz7bGeUODtNpSR+bsjlHg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-firestore-compat.js" integrity="sha256-sgbLcRGF3ph6N+ymg9zoy9kFQDWBvJlCd0GbGMKBH0c=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyC4aTYhB26fInluekTtovHm7rnx8sLxgTg","projectId":"blog-f0b28"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<div id="needsharebutton-float">
+      <span class="btn">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </span>
+    </div>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      flOptions = {};
+        flOptions.iconStyle = "default";
+        flOptions.boxForm = "vertical";
+        flOptions.position = "middleRight";
+        flOptions.networks = "Twitter,Mailto,Weibo,Wechat,Douban,Facebook,Linkedin,Reddit";
+      new needShareButton('#needsharebutton-float', flOptions);
+  </script><script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tyuanyao","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
