@@ -27,7 +27,7 @@
 <meta property="og:description" content="​">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-11-26T15:55:00.000Z">
-<meta property="article:modified_time" content="2023-11-26T15:57:15.667Z">
+<meta property="article:modified_time" content="2023-11-26T16:49:24.311Z">
 <meta property="article:author" content="Tehya">
 <meta property="article:tag" content="Theory">
 <meta name="twitter:card" content="summary">
@@ -126,7 +126,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-text">1 Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#objective"><span class="nav-text">2 Objective</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#examples"><span class="nav-text">3 Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#regression-problem"><span class="nav-text">3.1 Regression problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-classification"><span class="nav-text">3.2 K-classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging-will-often-decrease-mean-squared-error"><span class="nav-text">4.1 Bagging will often decrease mean-squared error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#baggings-effectiveness-with-high-variance-low-bias-models"><span class="nav-text">4.2 Bagging&#39;s Effectiveness with High-Variance, Low-Bias Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging-effect-caution-with-poor-classifiers"><span class="nav-text">4.3 Bagging effect: Caution with Poor Classifiers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#simple-example"><span class="nav-text">4.3.1 Simple Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#why-bagged-trees-fall-short-as-a-consensus-of-independent-weak-learners"><span class="nav-text">4.3.2 Why Bagged Trees Fall Short as a Consensus of Independent Weak Learners?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#illustration-of-combining-weak-learners"><span class="nav-text">4.3.3 Illustration of Combining Weak Learners</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#baggings-impact-on-model-structure"><span class="nav-text">4.4 Bagging&#39;s Impact on Model Structure</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">5 Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-text">1 Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#objective"><span class="nav-text">2 Objective</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#examples"><span class="nav-text">3 Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#regression-problem"><span class="nav-text">3.1 Regression problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-classification"><span class="nav-text">3.2 K-classification</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#properties"><span class="nav-text">4 Properties</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging-will-often-decrease-mean-squared-error"><span class="nav-text">4.1 Bagging will often decrease mean-squared error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#baggings-effectiveness-with-high-variance-low-bias-models"><span class="nav-text">4.2 Bagging&#39;s Effectiveness with High-Variance, Low-Bias Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging-effect-caution-with-poor-classifiers"><span class="nav-text">4.3 Bagging effect: Caution with Poor Classifiers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#simple-example"><span class="nav-text">4.3.1 Simple Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#why-bagged-trees-fall-short-as-a-consensus-of-independent-weak-learners"><span class="nav-text">4.3.2 Why Bagged Trees Fall Short as a Consensus of Independent Weak Learners?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#illustration-of-combining-weak-learners"><span class="nav-text">4.3.3 Illustration of Combining Weak Learners</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#baggings-impact-on-model-structure"><span class="nav-text">4.4 Bagging&#39;s Impact on Model Structure</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">5 Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -213,7 +213,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-11-26 10:55:00 / Modified: 10:57:15" itemprop="dateCreated datePublished" datetime="2023-11-26T10:55:00-05:00">2023-11-26</time>
+      <time title="Created: 2023-11-26 10:55:00 / Modified: 11:49:24" itemprop="dateCreated datePublished" datetime="2023-11-26T10:55:00-05:00">2023-11-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -290,7 +290,8 @@
 \hat{G}(x)=\arg \max _k \hat{f}(x)
 \]</span> Then the bagged estimate <span class="math inline">\(\hat{f}_{\mathrm{bag}}(x)\)</span> is a <span class="math inline">\(K\)</span>-vector <span class="math inline">\(\left[p_1(x), p_2(x), \ldots\right.\left.p_K(x)\right]\)</span> , with <span class="math inline">\(p_k(x)\)</span> equal to the proportion of trees predicting class <span class="math inline">\(k\)</span> at <span class="math inline">\(x\)</span>. The bagged classifier selects the class with the most "votes" from the <span class="math inline">\(B\)</span> trees <span class="math display">\[
  \hat{G}_{\mathrm{bag}}(x)=\arg \max _k \hat{f}_{\mathrm{bag}}(x)=\arg \max _k \frac{1}{B} \sum_{b=1}^{B} \hat{f}^{* b}(x)
-\]</span> # 4 Properties</p>
+\]</span></p>
+<h1 id="properties">4 Properties</h1>
 <h2 id="bagging-will-often-decrease-mean-squared-error">4.1 Bagging will often decrease mean-squared error</h2>
 <ul>
 <li>Consider the optimal bagging estimator, <span class="math inline">\(f_{\mathrm{ag}}(x) = \mathrm{E}_{\mathcal{P}} \hat{f}^*(x)\)</span>, where bootstrap samples are drawn from the actual population <span class="math inline">\(\mathcal{P}\)</span> rather than the dataset.</li>
@@ -309,16 +310,23 @@
 <h2 id="bagging-effect-caution-with-poor-classifiers">4.3 Bagging effect: Caution with Poor Classifiers</h2>
 <p>Bagging excels in enhancing a good classifier but can exacerbate the performance of a bad one.</p>
 <h3 id="simple-example">4.3.1 Simple Example</h3>
-<p>Consider a scenario where <span class="math inline">\(Y=1\)</span> for all <span class="math inline">\(x\)</span>. If a classifier <span class="math inline">\(\hat{G}(x)\)</span> predicts <span class="math inline">\(Y=1\)</span> with a probability of 0.4 and <span class="math inline">\(Y=0\)</span> with a probability of 0.6 for all <span class="math inline">\(x\)</span>, the misclassification error of <span class="math inline">\(\hat{G}(x)\)</span> is 0.6. However, the bagged classifier's error is 1.0.</p>
+<p>Consider a scenario where <span class="math inline">\(Y=1\)</span> for all <span class="math inline">\(x\)</span>.</p>
+<p>If a classifier <span class="math inline">\(\hat{G}(x)\)</span> predicts <span class="math inline">\(Y=1\)</span> with a probability of 0.4 and <span class="math inline">\(Y=0\)</span> with a probability of 0.6 for all <span class="math inline">\(x\)</span>, the misclassification error of <span class="math inline">\(\hat{G}(x)\)</span> is 0.6.</p>
+<p>However, the bagged classifier's error is 1.0.</p>
 <p>Classes: <span class="math inline">\(k=0,1\)</span></p>
 <p><span class="math display">\[
-\begin{align*}
+\begin{aligned}
 \hat{G}_{\mathrm{bag}}(x) &amp; =\arg\max_{k}\frac{1}{B}\sum_{b=1}^{B}\hat{f}^{*b}(x)\\
  &amp; =\arg\max_{k}\left(\begin{array}{c}\frac{1}{B}\sum_{b=1}^{B}I\left(G_{b}^{*}(x)=0\right)\\\frac{1}{B}\sum_{b=1}^{B}I\left(G_{b}^{*}(x)=1\right)\end{array}\right)\\
  &amp; \rightarrow\arg\max_{k}\left(\begin{array}{c}0.6\\0.4\end{array}\right)\\
  &amp; =0
-\end{align*}
-\]</span> - Misclassification error rate: <span class="math inline">\(e=0.6\)</span> - <span class="math inline">\(S_1(x)=\sum_{b=1}^B I\left(G_b^*(x)=1\right)\sim \operatorname{Bin}(B, 1-e)\)</span> - <span class="math inline">\(S_1(x) \rightarrow E(S_1(x))=B(1-e)=0.4 B &lt; B/2\)</span> - <span class="math inline">\(\operatorname{Pr}\left(S_1&lt;\right.{B} / 2) \rightarrow 1\)</span> as <span class="math inline">\(B\)</span> gets large.</p>
+\end{aligned}\]</span></p>
+<ul>
+<li>Misclassification error rate: <span class="math inline">\(e=0.6\)</span></li>
+<li><span class="math inline">\(S_1(x)=\sum_{b=1}^B I\left(G_b^*(x)=1\right)\sim \operatorname{Bin}(B, 1-e)\)</span></li>
+<li><span class="math inline">\(S_1(x) \rightarrow E(S_1(x))=B(1-e)=0.4 B &lt; B/2\)</span></li>
+<li><span class="math inline">\(\operatorname{Pr}\left(S_1&lt;\right.{B} / 2) \rightarrow 1\)</span> as <span class="math inline">\(B\)</span> gets large.</li>
+</ul>
 <h3 id="why-bagged-trees-fall-short-as-a-consensus-of-independent-weak-learners">4.3.2 Why Bagged Trees Fall Short as a Consensus of Independent Weak Learners?</h3>
 <ul>
 <li>Bagged trees lack <strong>independence</strong>.</li>
@@ -345,7 +353,7 @@
 <li>More stable procedures like nearest neighbors are typically less affected by bagging.</li>
 </ul>
 <h1 id="reference">5 Reference</h1>
-<p><a target="_blank" rel="noopener" href="https://www.stat.cmu.edu/~ryantibs/datamining/lectures/24-bag.pdf">https://www.stat.cmu.edu/~ryantibs/datamining/lectures/24-bag.pdf</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.stat.cmu.edu/~ryantibs/datamining/lectures/24-bag.pdf">https://www.stat.cmu.edu/~ryantibs/datamining/lectures/24-bag.pdf</a> <a target="_blank" rel="noopener" href="https://link.springer.com/book/10.1007/978-0-387-84858-7">https://link.springer.com/book/10.1007/978-0-387-84858-7</a></p>
 
     </div>
 
