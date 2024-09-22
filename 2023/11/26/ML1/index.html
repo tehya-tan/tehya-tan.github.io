@@ -126,7 +126,14 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-text">1 Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#objective"><span class="nav-text">2 Objective</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#examples"><span class="nav-text">3 Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#regression-problem"><span class="nav-text">3.1 Regression problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-classification"><span class="nav-text">3.2 K-classification</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#properties"><span class="nav-text">4 Properties</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging-will-often-decrease-mean-squared-error"><span class="nav-text">4.1 Bagging will often decrease mean-squared error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#baggings-effectiveness-with-high-variance-low-bias-models"><span class="nav-text">4.2 Bagging&#39;s Effectiveness with High-Variance, Low-Bias Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging-effect-caution-with-poor-classifiers"><span class="nav-text">4.3 Bagging effect: Caution with Poor Classifiers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#simple-example"><span class="nav-text">4.3.1 Simple Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#why-bagged-trees-fall-short-as-a-consensus-of-independent-weak-learners"><span class="nav-text">4.3.2 Why Bagged Trees Fall Short as a Consensus of Independent Weak Learners?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#illustration-of-combining-weak-learners"><span class="nav-text">4.3.3 Illustration of Combining Weak Learners</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#baggings-impact-on-model-structure"><span class="nav-text">4.4 Bagging&#39;s Impact on Model Structure</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">5 Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-text">1 Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#objective"><span class="nav-text">2 Objective</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#examples"><span class="nav-text">3 Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#regression-problem"><span class="nav-text">3.1 Regression problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-classification"><span class="nav-text">3.2 K-classification</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#properties"><span class="nav-text">4 Properties</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging-will-often-decrease-mean-squared-error"><span class="nav-text">4.1 Bagging will
+often decrease mean-squared error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#baggings-effectiveness-with-high-variance-low-bias-models"><span class="nav-text">4.2
+Bagging&#39;s Effectiveness with High-Variance, Low-Bias Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging-effect-caution-with-poor-classifiers"><span class="nav-text">4.3 Bagging
+effect: Caution with Poor Classifiers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#simple-example"><span class="nav-text">4.3.1 Simple Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#why-bagged-trees-fall-short-as-a-consensus-of-independent-weak-learners"><span class="nav-text">4.3.2
+Why Bagged Trees Fall Short as a Consensus of Independent Weak
+Learners?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#illustration-of-combining-weak-learners"><span class="nav-text">4.3.3 Illustration of
+Combining Weak Learners</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#baggings-impact-on-model-structure"><span class="nav-text">4.4 Bagging&#39;s Impact on
+Model Structure</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">5 Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -139,7 +146,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -148,7 +155,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -258,88 +265,192 @@
     <div class="post-body" itemprop="articleBody"><p>​</p>
 <span id="more"></span>
 <h1 id="introduction">1 Introduction</h1>
-<p>Bagging, short for Bootstrap Aggregation, is a powerful ensemble learning method that minimizes prediction variability by averaging across a set of bootstrap samples.</p>
-<p>This technique proves highly effective in situations where models are inclined toward high variance or overfitting.</p>
+<p>Bagging, short for Bootstrap Aggregation, is a powerful ensemble
+learning method that minimizes prediction variability by averaging
+across a set of bootstrap samples.</p>
+<p>This technique proves highly effective in situations where models are
+inclined toward high variance or overfitting.</p>
 <h1 id="objective">2 Objective</h1>
 <ul>
-<li><strong>Variance Reduction Through Averaging:</strong> Bagging strategically averages predictions over bootstrap samples, effectively curbing variance.</li>
-<li><strong>Leveraging Statistical Connections:</strong> Beyond simple averaging, bagging uncovers a strong connection between the bootstrap mean and a posterior average, enhancing its nuanced and effective approach.</li>
+<li><strong>Variance Reduction Through Averaging:</strong> Bagging
+strategically averages predictions over bootstrap samples, effectively
+curbing variance.</li>
+<li><strong>Leveraging Statistical Connections:</strong> Beyond simple
+averaging, bagging uncovers a strong connection between the bootstrap
+mean and a posterior average, enhancing its nuanced and effective
+approach.</li>
 </ul>
 <h1 id="examples">3 Examples</h1>
 <h2 id="regression-problem">3.1 Regression problem</h2>
 <ul>
-<li><p>Training data <span class="math inline">\(\mathbf{Z}=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \ldots,\left(x_{N}, y_{N}\right)\right\}\)</span></p></li>
-<li><p>Fitting the data and obtaining the prediction<span class="math inline">\(\hat{f}(x)\)</span> at input <span class="math inline">\(x\)</span></p></li>
-<li><p>For each bootstrap sample <span class="math inline">\(\mathbf{Z}^{* b}, b=1,2, \ldots, B\)</span>, we ﬁt our model, giving prediction <span class="math inline">\(\hat{f}^{* b}(x)\)</span>.</p>
+<li><p>Training data <span
+class="math inline">\(\mathbf{Z}=\left\{\left(x_{1},
+y_{1}\right),\left(x_{2}, y_{2}\right), \ldots,\left(x_{N},
+y_{N}\right)\right\}\)</span></p></li>
+<li><p>Fitting the data and obtaining the prediction<span
+class="math inline">\(\hat{f}(x)\)</span> at input <span
+class="math inline">\(x\)</span></p></li>
+<li><p>For each bootstrap sample <span
+class="math inline">\(\mathbf{Z}^{* b}, b=1,2, \ldots, B\)</span>, we ﬁt
+our model, giving prediction <span class="math inline">\(\hat{f}^{*
+b}(x)\)</span>.</p>
 <ul>
-<li><span class="math inline">\(\mathbf{Z}^{*}=\left\{\left(x_{1}^{*}, y_{1}^{*}\right),\left(x_{2}^{*}, y_{2}^{*}\right), \ldots,\left(x_{N}^{*}, y_{N}^{*}\right)\right\}\)</span></li>
-<li><span class="math inline">\(\left(x_i^*, y_i^*\right) \sim \hat{\mathcal{P}}\)</span> where <span class="math inline">\(\hat{\mathcal{P}}\)</span> is the empirical distribution putting equal probability <span class="math inline">\(1/N\)</span> on each of the data points <span class="math inline">\((x_i, y_i)\)</span>.</li>
+<li><span class="math inline">\(\mathbf{Z}^{*}=\left\{\left(x_{1}^{*},
+y_{1}^{*}\right),\left(x_{2}^{*}, y_{2}^{*}\right),
+\ldots,\left(x_{N}^{*}, y_{N}^{*}\right)\right\}\)</span></li>
+<li><span class="math inline">\(\left(x_i^*, y_i^*\right) \sim
+\hat{\mathcal{P}}\)</span> where <span
+class="math inline">\(\hat{\mathcal{P}}\)</span> is the empirical
+distribution putting equal probability <span
+class="math inline">\(1/N\)</span> on each of the data points <span
+class="math inline">\((x_i, y_i)\)</span>.</li>
 </ul></li>
 <li><p>The bagging estimate is <span class="math display">\[
 \hat{f}_{\mathrm{bag}}(x)=\frac{1}{B} \sum_{b=1}^{B} \hat{f}^{* b}(x)
 \]</span></p></li>
-<li><p><span class="math inline">\(\hat{f}_{\mathrm{bag}}(x)\)</span> is a Monte Carlo estimate of the true bagging estimate <span class="math inline">\(\mathrm{E}_{\hat{\mathcal{P}}} \hat{f}^{*}(x)\)</span></p></li>
-<li><p>The bagged estimate will differ from the original estimate <span class="math inline">\(\hat{f}(x)\)</span> only when the latter is a <strong>nonlinear</strong> or adaptive function of the data.</p>
+<li><p><span class="math inline">\(\hat{f}_{\mathrm{bag}}(x)\)</span> is
+a Monte Carlo estimate of the true bagging estimate <span
+class="math inline">\(\mathrm{E}_{\hat{\mathcal{P}}}
+\hat{f}^{*}(x)\)</span></p></li>
+<li><p>The bagged estimate will differ from the original estimate <span
+class="math inline">\(\hat{f}(x)\)</span> only when the latter is a
+<strong>nonlinear</strong> or adaptive function of the data.</p>
 <ul>
-<li>For example, B-spline smoother is linear in the data if we ﬁx the inputs; hence if we sample using the parametric bootstrap, it gives <span class="math display">\[ \hat{f}_{\mathrm{bag}}(x) \rightarrow \hat{f}(x) \text { as } B \rightarrow \infty \]</span></li>
+<li>For example, B-spline smoother is linear in the data if we ﬁx the
+inputs; hence if we sample using the parametric bootstrap, it gives
+<span class="math display">\[ \hat{f}_{\mathrm{bag}}(x) \rightarrow
+\hat{f}(x) \text { as } B \rightarrow \infty \]</span></li>
 </ul></li>
-<li><p>For Regression tree, <span class="math inline">\(\hat{f}(x)\)</span> represents the tree's prediction at input vector <span class="math inline">\(x\)</span>. The bagged estimate is the average prediction at <span class="math inline">\(x\)</span> from these <span class="math inline">\(B\)</span> tree</p></li>
+<li><p>For Regression tree, <span
+class="math inline">\(\hat{f}(x)\)</span> represents the tree's
+prediction at input vector <span class="math inline">\(x\)</span>. The
+bagged estimate is the average prediction at <span
+class="math inline">\(x\)</span> from these <span
+class="math inline">\(B\)</span> tree</p></li>
 </ul>
 <h2 id="k-classification">3.2 K-classification</h2>
-<p>Consider <span class="math inline">\(\hat{f}(x)\)</span>, an indicator-vector function, with value a single one and <span class="math inline">\(K-1\)</span> zeroes. The classifier is <span class="math display">\[
+<p>Consider <span class="math inline">\(\hat{f}(x)\)</span>, an
+indicator-vector function, with value a single one and <span
+class="math inline">\(K-1\)</span> zeroes. The classifier is <span
+class="math display">\[
 \hat{G}(x)=\arg \max _k \hat{f}(x)
-\]</span> Then the bagged estimate <span class="math inline">\(\hat{f}_{\mathrm{bag}}(x)\)</span> is a <span class="math inline">\(K\)</span>-vector <span class="math inline">\(\left[p_1(x), p_2(x), \ldots\right.\left.p_K(x)\right]\)</span> , with <span class="math inline">\(p_k(x)\)</span> equal to the proportion of trees predicting class <span class="math inline">\(k\)</span> at <span class="math inline">\(x\)</span>. The bagged classifier selects the class with the most "votes" from the <span class="math inline">\(B\)</span> trees <span class="math display">\[
- \hat{G}_{\mathrm{bag}}(x)=\arg \max _k \hat{f}_{\mathrm{bag}}(x)=\arg \max _k \frac{1}{B} \sum_{b=1}^{B} \hat{f}^{* b}(x)
+\]</span> Then the bagged estimate <span
+class="math inline">\(\hat{f}_{\mathrm{bag}}(x)\)</span> is a <span
+class="math inline">\(K\)</span>-vector <span
+class="math inline">\(\left[p_1(x), p_2(x),
+\ldots\right.\left.p_K(x)\right]\)</span> , with <span
+class="math inline">\(p_k(x)\)</span> equal to the proportion of trees
+predicting class <span class="math inline">\(k\)</span> at <span
+class="math inline">\(x\)</span>. The bagged classifier selects the
+class with the most "votes" from the <span
+class="math inline">\(B\)</span> trees <span class="math display">\[
+\hat{G}_{\mathrm{bag}}(x)=\arg \max _k \hat{f}_{\mathrm{bag}}(x)=\arg
+\max _k \frac{1}{B} \sum_{b=1}^{B} \hat{f}^{* b}(x)
 \]</span></p>
 <h1 id="properties">4 Properties</h1>
-<h2 id="bagging-will-often-decrease-mean-squared-error">4.1 Bagging will often decrease mean-squared error</h2>
+<h2 id="bagging-will-often-decrease-mean-squared-error">4.1 Bagging will
+often decrease mean-squared error</h2>
 <ul>
-<li>Consider the optimal bagging estimator, <span class="math inline">\(f_{\mathrm{ag}}(x) = \mathrm{E}_{\mathcal{P}} \hat{f}^*(x)\)</span>, where bootstrap samples are drawn from the actual population <span class="math inline">\(\mathcal{P}\)</span> rather than the dataset.</li>
-<li><span class="math inline">\(\hat{f}^{*}(x)\)</span> represents predictions derived from bootstrap samples drawn from <span class="math inline">\(\mathcal{P}\)</span>. <span class="math display">\[
-\begin{aligned}\mathrm{E}_{\mathcal{P}}\left[Y-\hat{f}^*(x)\right]^2 &amp; =\mathrm{E}_{\mathcal{P}}\left[Y-f_{\mathrm{ag}}(x)+f_{\mathrm{ag}}(x)-\hat{f}^*(x)\right]^2 \\&amp; =\mathrm{E}_{\mathcal{P}}\left[Y-f_{\mathrm{ag}}(x)\right]^2+\mathrm{E}_{\mathcal{P}}\left[\hat{f}^*(x)-f_{\mathrm{ag}}(x)\right]^2 \\&amp; \geq \mathrm{E}_{\mathcal{P}}\left[Y-f_{\mathrm{ag}}(x)\right]^2 .\end{aligned}
+<li>Consider the optimal bagging estimator, <span
+class="math inline">\(f_{\mathrm{ag}}(x) = \mathrm{E}_{\mathcal{P}}
+\hat{f}^*(x)\)</span>, where bootstrap samples are drawn from the actual
+population <span class="math inline">\(\mathcal{P}\)</span> rather than
+the dataset.</li>
+<li><span class="math inline">\(\hat{f}^{*}(x)\)</span> represents
+predictions derived from bootstrap samples drawn from <span
+class="math inline">\(\mathcal{P}\)</span>. <span
+class="math display">\[
+\begin{aligned}\mathrm{E}_{\mathcal{P}}\left[Y-\hat{f}^*(x)\right]^2
+&amp;
+=\mathrm{E}_{\mathcal{P}}\left[Y-f_{\mathrm{ag}}(x)+f_{\mathrm{ag}}(x)-\hat{f}^*(x)\right]^2
+\\&amp;
+=\mathrm{E}_{\mathcal{P}}\left[Y-f_{\mathrm{ag}}(x)\right]^2+\mathrm{E}_{\mathcal{P}}\left[\hat{f}^*(x)-f_{\mathrm{ag}}(x)\right]^2
+\\&amp; \geq \mathrm{E}_{\mathcal{P}}\left[Y-f_{\mathrm{ag}}(x)\right]^2
+.\end{aligned}
 \]</span></li>
-<li>The additional error on the right-hand side arises from the variance of <span class="math inline">\(\hat{f}^*(x)\)</span> around its mean <span class="math inline">\(f_{\mathrm{ag}}(x)\)</span>.</li>
-<li>Consequently, true population aggregation never increases mean squared error.</li>
+<li>The additional error on the right-hand side arises from the variance
+of <span class="math inline">\(\hat{f}^*(x)\)</span> around its mean
+<span class="math inline">\(f_{\mathrm{ag}}(x)\)</span>.</li>
+<li>Consequently, true population aggregation never increases mean
+squared error.</li>
 </ul>
-<h2 id="baggings-effectiveness-with-high-variance-low-bias-models">4.2 Bagging's Effectiveness with High-Variance, Low-Bias Models</h2>
-<p>Bagging demonstrates exceptional efficacy, particularly with high-variance, low-bias procedures, such as trees.</p>
+<h2 id="baggings-effectiveness-with-high-variance-low-bias-models">4.2
+Bagging's Effectiveness with High-Variance, Low-Bias Models</h2>
+<p>Bagging demonstrates exceptional efficacy, particularly with
+high-variance, low-bias procedures, such as trees.</p>
 <ul>
-<li><strong>Regression:</strong> Repeatedly fit the same regression tree to bootstrapped versions of the training data and average the results.</li>
-<li><strong>Classification:</strong> Form a committee of trees where each tree contributes a vote for the predicted class.</li>
+<li><strong>Regression:</strong> Repeatedly fit the same regression tree
+to bootstrapped versions of the training data and average the
+results.</li>
+<li><strong>Classification:</strong> Form a committee of trees where
+each tree contributes a vote for the predicted class.</li>
 </ul>
-<h2 id="bagging-effect-caution-with-poor-classifiers">4.3 Bagging effect: Caution with Poor Classifiers</h2>
-<p>Bagging excels in enhancing a good classifier but can exacerbate the performance of a bad one.</p>
+<h2 id="bagging-effect-caution-with-poor-classifiers">4.3 Bagging
+effect: Caution with Poor Classifiers</h2>
+<p>Bagging excels in enhancing a good classifier but can exacerbate the
+performance of a bad one.</p>
 <h3 id="simple-example">4.3.1 Simple Example</h3>
-<p>Consider a scenario where <span class="math inline">\(Y=1\)</span> for all <span class="math inline">\(x\)</span>.</p>
-<p>If a classifier <span class="math inline">\(\hat{G}(x)\)</span> predicts <span class="math inline">\(Y=1\)</span> with a probability of 0.4 and <span class="math inline">\(Y=0\)</span> with a probability of 0.6 for all <span class="math inline">\(x\)</span>, the misclassification error of <span class="math inline">\(\hat{G}(x)\)</span> is 0.6.</p>
+<p>Consider a scenario where <span class="math inline">\(Y=1\)</span>
+for all <span class="math inline">\(x\)</span>.</p>
+<p>If a classifier <span class="math inline">\(\hat{G}(x)\)</span>
+predicts <span class="math inline">\(Y=1\)</span> with a probability of
+0.4 and <span class="math inline">\(Y=0\)</span> with a probability of
+0.6 for all <span class="math inline">\(x\)</span>, the
+misclassification error of <span
+class="math inline">\(\hat{G}(x)\)</span> is 0.6.</p>
 <p>However, the bagged classifier's error is 1.0.</p>
 <p>Classes: <span class="math inline">\(k=0,1\)</span></p>
 <p><span class="math display">\[
 \begin{aligned}
-\hat{G}_{\mathrm{bag}}(x) &amp; =\arg\max_{k}\frac{1}{B}\sum_{b=1}^{B}\hat{f}^{*b}(x)\\
- &amp; =\arg\max_{k}\left(\begin{array}{c}\frac{1}{B}\sum_{b=1}^{B}I\left(G_{b}^{*}(x)=0\right)\\\frac{1}{B}\sum_{b=1}^{B}I\left(G_{b}^{*}(x)=1\right)\end{array}\right)\\
- &amp; \rightarrow\arg\max_{k}\left(\begin{array}{c}0.6\\0.4\end{array}\right)\\
- &amp; =0
+\hat{G}_{\mathrm{bag}}(x) &amp;
+=\arg\max_{k}\frac{1}{B}\sum_{b=1}^{B}\hat{f}^{*b}(x)\\
+&amp;
+=\arg\max_{k}\left(\begin{array}{c}\frac{1}{B}\sum_{b=1}^{B}I\left(G_{b}^{*}(x)=0\right)\\\frac{1}{B}\sum_{b=1}^{B}I\left(G_{b}^{*}(x)=1\right)\end{array}\right)\\
+&amp;
+\rightarrow\arg\max_{k}\left(\begin{array}{c}0.6\\0.4\end{array}\right)\\
+&amp; =0
 \end{aligned}\]</span></p>
 <ul>
-<li>Misclassification error rate: <span class="math inline">\(e=0.6\)</span></li>
-<li><span class="math inline">\(S_1(x)=\sum_{b=1}^B I\left(G_b^*(x)=1\right)\sim \operatorname{Bin}(B, 1-e)\)</span></li>
-<li><span class="math inline">\(S_1(x) \rightarrow E(S_1(x))=B(1-e)=0.4 B &lt; B/2\)</span></li>
-<li><span class="math inline">\(\operatorname{Pr}\left(S_1&lt;\right.{B} / 2) \rightarrow 1\)</span> as <span class="math inline">\(B\)</span> gets large.</li>
+<li>Misclassification error rate: <span
+class="math inline">\(e=0.6\)</span></li>
+<li><span class="math inline">\(S_1(x)=\sum_{b=1}^B
+I\left(G_b^*(x)=1\right)\sim \operatorname{Bin}(B, 1-e)\)</span></li>
+<li><span class="math inline">\(S_1(x) \rightarrow E(S_1(x))=B(1-e)=0.4
+B &lt; B/2\)</span></li>
+<li><span class="math inline">\(\operatorname{Pr}\left(S_1&lt;\right.{B}
+/ 2) \rightarrow 1\)</span> as <span class="math inline">\(B\)</span>
+gets large.</li>
 </ul>
-<h3 id="why-bagged-trees-fall-short-as-a-consensus-of-independent-weak-learners">4.3.2 Why Bagged Trees Fall Short as a Consensus of Independent Weak Learners?</h3>
+<h3
+id="why-bagged-trees-fall-short-as-a-consensus-of-independent-weak-learners">4.3.2
+Why Bagged Trees Fall Short as a Consensus of Independent Weak
+Learners?</h3>
 <ul>
 <li>Bagged trees lack <strong>independence</strong>.</li>
-<li>The "Wisdom of Crowds" principle suggests that the collective knowledge of a <strong>diverse and independent</strong> group surpasses that of any individual. This concept is effectively harnessed through voting.</li>
-<li><strong>Random forests</strong> address this limitation by diminishing the correlation among sampled trees.</li>
+<li>The "Wisdom of Crowds" principle suggests that the collective
+knowledge of a <strong>diverse and independent</strong> group surpasses
+that of any individual. This concept is effectively harnessed through
+voting.</li>
+<li><strong>Random forests</strong> address this limitation by
+diminishing the correlation among sampled trees.</li>
 </ul>
-<h3 id="illustration-of-combining-weak-learners">4.3.3 Illustration of Combining Weak Learners</h3>
-<p>Consider a two-class example where the Bayes optimal decision at <span class="math inline">\(x\)</span> is <span class="math inline">\(G(x)=1\)</span>.</p>
+<h3 id="illustration-of-combining-weak-learners">4.3.3 Illustration of
+Combining Weak Learners</h3>
+<p>Consider a two-class example where the Bayes optimal decision at
+<span class="math inline">\(x\)</span> is <span
+class="math inline">\(G(x)=1\)</span>.</p>
 <ul>
-<li>Each weak learner <span class="math inline">\(G_b^*\)</span> has an error-rate <span class="math inline">\(e_b=e&lt;0.5\)</span>.</li>
-<li>Let <span class="math inline">\(S_1(x)=\sum_{b=1}^B I\left(G_b^*(x)=1\right)\)</span> represent the consensus vote for class 1.</li>
-<li>Assuming independence among weak learners, <span class="math inline">\(S_1(x) \sim \operatorname{Bin}(B, 1-e)\)</span>.</li>
-<li>As <span class="math inline">\(B\)</span> grows, <span class="math inline">\(\operatorname{Pr}\left(S_1&gt;\right.{B} / 2) \rightarrow 1\)</span>.
+<li>Each weak learner <span class="math inline">\(G_b^*\)</span> has an
+error-rate <span class="math inline">\(e_b=e&lt;0.5\)</span>.</li>
+<li>Let <span class="math inline">\(S_1(x)=\sum_{b=1}^B
+I\left(G_b^*(x)=1\right)\)</span> represent the consensus vote for class
+1.</li>
+<li>Assuming independence among weak learners, <span
+class="math inline">\(S_1(x) \sim \operatorname{Bin}(B,
+1-e)\)</span>.</li>
+<li>As <span class="math inline">\(B\)</span> grows, <span
+class="math inline">\(\operatorname{Pr}\left(S_1&gt;\right.{B} / 2)
+\rightarrow 1\)</span>.
 <ul>
 <li>By the Law of Large Numbers,<span class="math display">\[
   S_1(x) \rightarrow E(S_1(x))=B(1-e) &gt; B/2  
@@ -347,13 +458,19 @@
 <li>since <span class="math inline">\(e &lt; 0.5\)</span>.</li>
 </ul></li>
 </ul>
-<h2 id="baggings-impact-on-model-structure">4.4 Bagging's Impact on Model Structure</h2>
+<h2 id="baggings-impact-on-model-structure">4.4 Bagging's Impact on
+Model Structure</h2>
 <ul>
-<li>Bagging can alter the simple structure of a model; for instance, a bagged tree ceases to resemble a tree.</li>
-<li>More stable procedures like nearest neighbors are typically less affected by bagging.</li>
+<li>Bagging can alter the simple structure of a model; for instance, a
+bagged tree ceases to resemble a tree.</li>
+<li>More stable procedures like nearest neighbors are typically less
+affected by bagging.</li>
 </ul>
 <h1 id="reference">5 Reference</h1>
-<p><a target="_blank" rel="noopener" href="https://www.stat.cmu.edu/~ryantibs/datamining/lectures/24-bag.pdf">https://www.stat.cmu.edu/~ryantibs/datamining/lectures/24-bag.pdf</a> <a target="_blank" rel="noopener" href="https://link.springer.com/book/10.1007/978-0-387-84858-7">https://link.springer.com/book/10.1007/978-0-387-84858-7</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.stat.cmu.edu/~ryantibs/datamining/lectures/24-bag.pdf">https://www.stat.cmu.edu/~ryantibs/datamining/lectures/24-bag.pdf</a>
+<a
+target="_blank" rel="noopener" href="https://link.springer.com/book/10.1007/978-0-387-84858-7">https://link.springer.com/book/10.1007/978-0-387-84858-7</a></p>
 
     </div>
 
@@ -392,6 +509,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/09/22/Boosting1/" rel="next" title="Boosting 1 - AdaBoost.M1 Overview">
+                  Boosting 1 - AdaBoost.M1 Overview <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -416,7 +536,7 @@
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2023</span>
+    <span itemprop="copyrightYear">2024</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
